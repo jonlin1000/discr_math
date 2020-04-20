@@ -1,0 +1,25 @@
+Important observation I wanted to highlight today:
+
+\begin{tcolorbox}
+In math, we work with \textit{functions} a lot. Recall the basic property of a function: it will take a value (a number, an animal, anything) and output another value (a letter of the alphabet, the number of the animal's legs, anything). Later on we will learn a more rigorous definition than that described above.
+\end{tcolorbox}
+
+Then a boolean expression is really a function. Each variable takes in either true or false, at which point we can \textit{evaluate} the expression and we get some boolean value (either true or false). Consider the expression
+\[(p \land q) \lor r.\]
+Then we can feed in any combination of trues or falses. For example, if $p \equiv T$, $q \equiv F$, and $r \equiv T$, then the expression above will evaluate these values to 
+\[(T \land F) \lor T \equiv F \lor T \equiv T,\] or true.
+
+A \textbf{truth table} then is really just a way of recording the output values of this function.
+
+ \begin{enumerate}
+   \item \input{Ch1/1_ex/problem_1}
+   \begin{tcolorbox}
+Two logical expressions are called \textbf{logically equivalent} if they have the same truth value given a set of truth values for each variable.
+
+Equivalently, two logical expressions are logically equivalent if they have the same truth table.
+\end{tcolorbox}
+    \item \input{Ch1/1_ex/problem_2}
+    \item \input{Ch1/1_ex/problem_3}
+    \item \input{Ch1/1_ex/problem_4}
+    \item \input{Ch1/1_ex/problem_5}
+ \end{enumerate}

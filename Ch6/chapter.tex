@@ -1,0 +1,185 @@
+In CMSC250, there are only about two ways in which you might prove a number $\sqrt[n]{q}$ irrational for some $n \in \mathbb{Z}^{>0}$ and some $q \in \mathbb{Z}^{>1}$:
+
+\begin{itemize}
+    \item A Euclidean argument. That is, you prove some lemma of the form ``if $q \mid a^n$ then $q \mid a$''.
+    \item Use the unique prime factorization theorem and compare the exponents on prime factors modulo $n$.
+\end{itemize}
+
+There are two main problems with both approaches:
+\begin{itemize}
+    \item The Euclidean argument scales poorly to large values of $n$ and large values of $q$, especially when proving a statement like this by contrapositive, where the naive thing to do is to prove separately each remainder case out of the quotient remainder theorem.
+    \item Proofs by UPFT are hard to write correctly, are a mess of indices, and are difficult to grade and give feedback. Especially if you have an equation of the form
+    \[2p_1^{2e_1}\cdots p_n^{2e_n} = q_1^{2f_1}\cdots q_k^{2f_k},\]
+    it is tricky to talk about the exponent of the $2$ in the unique prime factorization of the number on the left hand side.
+\end{itemize}
+
+Here in this handout I outline better tools (Bezout's Lemma, and the $p \mid ab$ lemma) which completely resolve these two issues. Proofs using these two methods both scale well to large numbers and are not too hard to write correctly.
+
+\section{Preliminary Definitions and Results}
+
+\begin{definition}
+ Given integers $a$ and $b$, we say that $a$ divides $b$ (and we write $a \mid b$) if there exists an integer $k$ such that $a \cdot k = b$.
+\end{definition}
+
+\begin{definition}
+ Given integers $a$ and $b$ and positive integer $m$ we say that $a$ is congruent to $b$ modulo $m$ (and we write $a \equiv b \pmod{m}$) if $m \mid (a - b)$.
+\end{definition}
+
+Here in this document $\mathbb{Z}$ denotes the integers and $\mathbb{N}$ denotes the integers greater than $0$. \textbf{Note that this is different from standard CMSC250 convention!} I'll also abuse the following fact a lot, which is often taken as a given (axiomatic) property of the natural numbers:
+
+\begin{tcolorbox}
+ Let $S \subseteq \mathbb{N}$. Then $S$ has a least element. That is, there is an $s \in S$ such that for all $t \in S$, $s \leq t$.
+\end{tcolorbox}
+
+This property is called the \textbf{well ordering property} of $\mathbb{N}$. As an aside, note that this property that $T$ is equivalent to the principle of mathematical induction, as proven in the box below.
+\begin{tcolorbox}
+ To fill in later. It's not too important.
+\end{tcolorbox}
+
+\begin{definition}
+ Let $a$ and $b$ be \textbf{non-zero} integers. Then the greatest common denominator of $a$ and $b$ (we write $\gcd(a, b)$) is the largest number $g$ which divides $a$ and $b$.
+\end{definition}
+
+\begin{example} Here are some simple examples illustrating the gcd.
+    \begin{tcolorbox}
+      The greatest common denominator of $12$ and $8$ is $4$. \\ For any integer $n$, the greatest common denominator of $n$ and $n + 1$ is $1$. How do we show this? Suppose $a \geq 2$, $a \mid n$ (that is, $ak = n$ for some $k \in \mathbb{Z}$). Then $ak + 1 = n + 1$, and by the quotient remainder theorem it follows that $a$ does not divide $n + 1$. We've deduced that no divisor of $a$ greater than $2$ can also divide $n + 1$. Hence the \textit{greatest} common divisor of $n$ and $n + 1$ is $1$.
+    \end{tcolorbox}
+\end{example}
+
+\begin{definition}
+ A prime number $p$ is a natural number greater than $1$ with the property that the only natural numbers which divide $p$ are $1$ and $p$.
+\end{definition}
+
+The following lemma is the key to most irrationality applications. It says that if $p$ is prime and $p \nmid a$, then $p$ and $a$ have no commmon factors other than $1$. Intuitively and formally, this is clear because $p$ only has $2$ factors, $1$ and $p$.
+\begin{lemma}
+    Suppose $p$ is a prime and $a$ is an integer with $p \nmid a$. Then $\gcd(p, a) = 1$.
+\end{lemma}
+\begin{proof}
+The only divisors of $p$ are $1$ and $p$. The condition $p \nmid a$ shows that $p$ is not a divisor of $a$. Hence $1$ must be the \textit{greatest} common divisor of $p$ and $a$, as desired.
+\end{proof}
+
+We also use the following lemma a lot, which is just a way to bound numbers by divisors.
+\begin{lemma}
+    Suppose $a$ and $b$ are integers, $b$ non-zero, with $a \mid b$. Then $|a| \leq |b|$. In particular, if $a$ and $b$ are positive, then $a \leq b$.
+\end{lemma}
+\begin{proof}
+    $a \mid b$ implies that there is an integer $k$ such that $a\cdot k = b$. Since $b \neq 0$ it follows that $k \neq 0$. So $|k| \geq 1$. It follows that 
+    \[|a| = |a| \cdot 1 \leq |a||k| = |ak| = |b|,\] as desired.
+\end{proof}
+
+\section{Bezout's Lemma, and the $p \mid ab$ Lemma}
+
+\begin{definition}
+ Suppose $m$ and $n$ are integers. An \textbf{integer linear combination} of $m$ and $n$ is any integer of the form 
+ \[mx + ny\] where $x, y \in \mathbb{Z}$.
+\end{definition}
+
+\begin{example}
+    $1$ is an integer linear combination of $13$ and $9$, since
+    \[1 = 91 - 90 = 13(7) - 9(10).\]
+\end{example}
+
+Given non-zero integers $m$ and $n$, let \[S = \{mx + ny \mid x, y \in \mathbb{Z}, mx + ny > 0\}.\]
+In English, $S$ is all the positive integer linear combinations. Since $S \subseteq \mathbb{N}$, it has a least element $\ell$. Bezout's Lemma states that $\ell = \gcd(m, n)$, a surprising result to take in at first.
+
+\begin{lemma}
+    Let $m$ and $n$ be non-zero integers, and let $g = \gcd(m, n)$. Then $g$ is the smallest positive integer linear combination of $m$ and $n$, that is, there exist some integers $x_0$, $y_0$ where
+    \[g = mx_0 + ny_0,\] and moreover $g$ is the smallest number where such $x_0$ and $y_0$ exist.
+\end{lemma}
+
+\begin{proof}
+The proof strategy is as follows: define $\ell$ as earlier, that is, as the least positive integer linear combination of $m$ and $n$ (that is, the smallest natural number where $mx_0 + ny_0 = \ell$ for some integer $x_0$ and $y_0$). We prove two intermediate results:
+\begin{enumerate}
+    \item $\ell \mid n$ and $\ell \mid n$.
+    \item $g \mid \ell$
+\end{enumerate}
+
+These two things imply $\ell = g$, for the first step tells us $\ell$ is a common divisor of $m$ and $n$, and the second step tells us that the \textit{greatest} common divisor divides $\ell$, hence is less than or equal to $\ell$. But $g$ is the greatest common divisor, so $g = \ell$.
+
+Let's prove these two steps. Suppose (by contradiction), $\ell \nmid m$. Then by the quotient remainder theorem there exist integers $q$ and $r$ where $0 < r < \ell$ such that $m = q\ell + r$. Then we have
+\[r = m - \ell q = m - (mx_0 + ny_0)\ell = m(1 - x_0\ell) + n(b_0\ell).\]
+Both expressions in the parentheses in the right hand side are integers by closure under addition and multiplication. So we have expressed $r > 0$, strictly less than $\ell$, as an integer linear combination of $m$ and $n$. But $\ell$ was defined as the \textbf{least} integer linear combination! This is a contradiction, so $\ell \mid m$. Similarly, $\ell \mid n$.
+
+Let $g = \gcd(m, n)$. There exist $k_1, k_2 \in \mathbb{Z}$ such that $gk_1 = m$ and $gk_2 = n$. Then using the $x_0$ and $y_0$ as above we get
+\[\ell = mx_0 + ny_0 = g(k_1x_0 + k_2y_0),\]
+which shows that $g \mid \ell$, as desired.
+\end{proof}
+
+What immediately follows is a very nice lemma about a prime dividing a product.
+
+\begin{lemma}
+    Let $p$ be a prime and $a$ and $b$ be integers. If $p \mid ab$ then $p \mid a$ or $p \mid b$.
+\end{lemma}
+\begin{proof}
+    To prove this statement we need to show that the statement
+    \[(p \mid a) \lor (p \mid b).\]
+    
+    is always true. To prove this or statement, there are two cases. Either $(p \mid a)$, which means the or statement is true. So there is nothing to do here. So suppose $p \nmid a$. We need to show that $(p \mid b)$ to show that the or statement is true.
+    
+    If $p \nmid a$ then $\gcd(a, p) = 1$. So there exist integers $x, y$ such that $ax + py = 1$. Multiplying this equation by $b$, we get $abx + pby = b$. But since $p \mid ab$ there exists an integer $k$ such that $pk = ab$. So substituting this into the above equation we get
+    \[pkx + pby = p(kx + by) = b,\] and since $kx + by$ is an integer it follows that $p \mid b$, as desired.
+\end{proof}
+
+\section{Immediate applications to irrationality proofs}
+
+Using the $p \mid ab$ lemma we can immediately deduce the Euclidean lemma for any prime and any exponent, as highlighted below.
+
+\begin{lemma}
+Suppose $p$ is a prime and $a$ is an integer with $p \mid a^2$. Then $p \mid a$.
+\end{lemma}
+I'll give two different proofs of this fact, one using Bezout's Lemma and one using the $p \mid ab$ lemma.
+\begin{proof}
+    By contrapositive. Suppose $p \nmid a$. Then $\gcd(p, a) = 1$, so there exist integers $x$ and $y$ such that $px + ay = 1$. Squaring this equation we get 
+    \[p^2x^2 + 2pxay + a^2y^2 = p(px^2 + 2pxy) + a^2(y^2) = 1.\]
+    This shows that $1$ is an integer linear combination of $p$ and $a^2$. Since it is the smallest possible integer linear combination we can conclude that $\gcd(a^2, p) = 1$. That is,
+    $p \nmid a^2$, as desired.
+\end{proof}
+Isn't that neat? No nightmare of indices. No dealing with $p-1$ cases (especially as $p$ gets very large). Just square the equation $ax + py = 1$ to get what you want. The second proof is even easier.
+
+\begin{proof}
+    Suppose $p \mid a^2$. Then $p \mid a \cdot a$. So $p \mid a$ or $p \mid a$, which means that $p \mid a$, as desired.
+\end{proof}
+
+In fact, this proof is so nice that it leads the way to an easy proof by induction.
+
+\begin{lemma} \label{gen_euclid}
+Suppose that $p$ is a prime and $a$ is an integer with $p \mid a^n$. Then $p \mid a$.
+\end{lemma}
+
+\begin{proof}
+We'll prove this by induction on $n$. For the case $n = 1$, clearly $p \mid a$ implies $p \mid a$. Now assume that for $n \geq 1$ that $p \mid a^n$ implies $p \mid a$. Suppose $p \mid a^{n + 1}$. Then $p \mid a$ or $p \mid a^n$. Clearly if $p \mid a$ we would be done. Even if we suppose not, then $p \mid a^n$ and our inductive step gives us $p \mid a$ anyway. So the inductive step is complete and we are done.
+\end{proof}
+
+The next lemma shows that mod a prime, any non-zero integer has an inverse modulo $p$.
+
+\begin{lemma} \label{inverse}
+Suppose $p$ is any prime, and $k$ is not a multiple of $p$. Then there exists an integer $\ell$ such that 
+\[k \ell \equiv 1 \pmod{p}.\]
+\end{lemma}
+
+\begin{proof}
+Since $k$ is not a multiple of $p$, it follows that $\gcd(k, p) = 1$. So there exist integers $x$ and $y$ such that $kx - py = 1$, or $kx - 1 = py$. This implies that $p \mid (kx - 1)$, or $kx \equiv 1 \pmod{p}$, as desired.
+\end{proof}
+
+\begin{example}
+We'll find all the solutions $n$ to the equation $5n \equiv 3 \pmod{7}$.
+\begin{tcolorbox}
+ By Lemma \ref{inverse} there exists some $k$ such that $5k \equiv 1 \pmod{7}$. After some searching we see that $k = 3$ is an integer such that $5k \equiv 1 \pmod{7}$. Hence
+ \[5kn \equiv 3k \pmod{7} \implies n \equiv 3(3) \equiv 2 \pmod{7}.\]
+ 
+ So all such $n$ must be of the form $7k + 2$ for some integer $k$. Conversely, if $n = 7k + 2$, then 
+ \[5n = 35k + 10 = 7(5k + 1) + 3,\] or $5n \equiv 3 \pmod{7}$. This shows that all solutions $n$ to the equation are the integers $7k + 2$ where $k$ is \textbf{any} integer.
+\end{tcolorbox}
+\end{example}
+
+\section{Exercises}
+ \begin{enumerate}
+   \item \input{Ch6/problem_1}
+   \item \input{Ch6/problem_2}
+   \item \input{Ch6/problem_3}
+   \item \input{Ch6/problem_4}
+   \item \input{Ch6/problem_5}
+   % add more problem files here
+ \end{enumerate}
+
+\end{document}
