@@ -1,0 +1,13 @@
+It's important to realize the limitations of what kinds of sets we can define in our usual notation. The following example, independently discovered by Russel and Zermelo in the early 20th century illustrates that there cannot be a set of all sets. 
+
+Suppose there was a universal set $U$, the set of all sets. Then $U$ contains itself (since $U$ is also a set).  Consider the subset of $U$ defined by
+\[N = \{S \in U \mid S \not\in S\}.\] That is, $N$ contains all the sets $S$ which do not contain themselves.
+
+\begin{enumerate}
+    \item Show that $N$ is non-empty.
+    \item Suppose $N \in N$. Deduce that $N \not\in N$. This is a contradiction, since formally we get the logical expression
+    \[(N \in N) \land \lnot(N \in N) \equiv F.\]
+    So then $N \not\in N$?
+    \item But now suppose $N \not\in N$. Reason that $N \in N$.
+\end{enumerate}
+So the subset $N$ cannot exist. The conclusion is that the set $U$ is not well-defined (ie, does not exist).

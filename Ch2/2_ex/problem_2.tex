@@ -1,0 +1,22 @@
+Now we will construct a 2 bit adder, bit by bit. Consider the process in the two bit box below.
+
+\begin{tcolorbox}
+Suppose that we want to add two $2$-bit binary numbers $ab$ and $cd$. The process is as follows, modeling regular vertical addition. First we add the end bits $b$ and $d$ to get some number $c_1s_1$. Then we add $c_1$, $a$ and $c$ to get some number $c_2s_2$. Our binary answer is then $c_2s_2s_1$ concatenated.
+\end{tcolorbox}
+
+\begin{enumerate}
+    \item Convince yourself that this process for adding two $2$-bit numbers works. I will try to illustrate this on the board for you when we are at this problem.
+    
+    \item Construct the $2$-bit adder circuit. (Hint: I have described two bit addition in a way which nicely uses the operations we've discussed previously.)
+    
+    \item How many AND, OR, and NOT gates are in a $2$-bit adder?
+    
+    \item Outline in a diagram how an $n$-bit adder is constructed, based on the idea of the $2$-bit adder.
+    
+    \item How many AND, OR, and NOT gates are in an $n$-bit adder?
+    
+    \item This will be an instructive exercise for people who've learned proof by induction already. \begin{enumerate}
+        \item First, suppose we have the $(n-1)$-bit adder black boxed. Show that we can make an $n$-bit adder using this $(n-1)$-bit adder and a full adder. (You should be able to do this problem even if you do not know proof by induction).
+        \item Use this characterization of the $n$-bit adder as a combination of the $(n-1)$-bit adder and the full adder to verify the number of AND, OR, and NOT gates for an $n$-bit adder.
+    \end{enumerate} 
+\end{enumerate}

@@ -1,0 +1,28 @@
+Assume for this problem that logic gates have a \textbf{cost} (just like in real life!). The cost list is below.
+
+\begin{table}[H]
+	\centering
+	\renewcommand{\arraystretch}{1.2}
+	\renewcommand{\tabcolsep}{2cm}
+	\begin{tabular}{|c|c|} \hline 
+		{\textbf{Gate}} & {\textbf{Cost}} \\ \hline
+		NAND & 2 \\ \hline
+		NOR & 4\\ \hline
+		NOT & 3\\ \hline
+		AND & 7\\ \hline
+		OR & 3\\ \hline
+		XOR & 6 \\ \hline
+		XNOR & 11 \\ \hline
+	\end{tabular}
+	\caption{Some fictional gate costs.}
+	\label{tbl:costs}
+\end{table}
+Suppose (for the sake of imagination) that this is the cost list for the fictional Alpha Beta Gamma computer hardware company. You are a consultant who is brought in to improve business pricing and advertising (although in this problem we will only focus on the pricing). Assume that people won't buy a gate if there is a cheaper alternative available. 
+
+\begin{enumerate}
+    \item The NAND gate is really, really cheap. (Actually, in real life, the NAND gate turns out to be the cheapest logic gate to construct, it requires the least transistors). Construct a NOT gate using the least number of NAND gates possible. Conclude if the current price for NOT is appropriate or not.
+    
+    \item Try to do the same thing for all the other logical gates and conclude whether or not their pricing is appropriate or not for each gate.
+    
+    \item (Challenge Problem, will probably not be discussed). Show that given any circuit, you can create an equivalent circuit using only the NAND gate. In other words, the NAND operator will generate any truth table. (Hint: what does the conjunctive normal form show?)
+\end{enumerate}

@@ -1,0 +1,80 @@
+\section{Functions}
+
+\subsection{Definition and Terminology}
+In this section, we will answer two questions. Namely, what is a function, and what do functions do?
+
+From prior experience in precalculus and calculus courses most people have an intuitive picture of what functions are. For most purposes, they are ``rules'' that sends values to other values. In other words:
+
+\begin{tcolorbox}
+A function is a rule that assigns to certain elements in a set, certain elements to another set.
+\end{tcolorbox}
+
+The word rule is not very clear or rigorous. For example, we might consider the real valued functions $f(x) = x^3$ and $g(x) = x^3 + 3x - 3(x + 3) + 9$. These have the same value everywhere, but the rule for evaluating them is slightly different.
+
+It turns out that when defining functions rigorously, the ``rule'' is a means to an end. All we care about when talking about any specific function is the output given the input. 
+
+\begin{definition}
+A function $f:A \to B$ (read as ``$f$ from $A$ to $B$'') is defined as a set of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$ (more specifically, a subset of the set of ordered pairs $A \times B$). $f$ has the following properties:
+\begin{enumerate}
+    \item For all $a \in A$, there exists some $b \in B$ such that $(a, b) \in f$.
+    \item For all $a \in A$, $b, c \in B$, if $(a,b) \in f$ and $(a, c) \in f$, then $b = c$.
+\end{enumerate}
+\end{definition}
+
+In other words, every value $a \in A$ will have some value $b$ such that $(a, b)$ is in $f$. Moreover, this value is \textbf{unique}. We define $f(a)$ as the unique value in $B$ such that $(a, f(a)) \in f$.
+
+Here is some more terminology.
+\begin{definition}
+Let $f: A \to B$ be a function. We say $A$ is the \textbf{domain} of the function $f$ and $B$ is the \textbf{codomain} of $f$. We say that $a$ is mapped to $b$ or $f$ maps $a$ to $b$ if $(a, b) \in f$. You can also write $a \mapsto b$ as long as it is clear what $f$ is.
+\end{definition}
+
+Using these definitions, we can say the following: Given any function $f:A \to B$, every value in the domain will be mapped to exactly one value in the codomain.
+
+\subsection{Injectivity, Surjectivity, Bijectivity}
+
+Here are the relevant definitions:
+\begin{itemize}
+    \item A function $f:A \to B$ is injective (or one to one) if $f(a) = f(b) \implies a = b$. So two different values in $A$ do not map to the same value in $B$.
+    \item A function $f:A \to B$ is surjective (or onto) if for all $b \in B$ we can find a value in $A$ such that $f(a) = b$.
+    \item A function $f$ is bijective if it is both injective and surjective.
+\end{itemize}
+
+Here is an interesting observation: if $f: A \to B$ is a bijection, then there is an inverse function $g: B \to A$. For each $b \in B$, we can define $g(b)$ as the unique value $a \in A$ such that $f(a) = b$. We know such a value exists because $f$ is surjective, and we know that this value is unique because $f$ is injective.
+
+\section{Relations}
+
+Let $A$ be a set. Traditionally, we have lots of different notation for when we might want to \textit{compare} two objects in $A$. For example, the $=$ notation ``compares'' for equality, and the $\leq$ symbol compares two objects for magnitude. Relations generalize these comparison operators.
+
+\begin{definition}
+Let $A$ and $B$ be sets. A relation $R$ on $A$ and $B$ is a subset of $A \times B$. That is, $R$ is any subset of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$.
+\end{definition}
+
+For example, a function $f$ is a relation.
+
+Most of the time we will consider relations in the special case where $A = B$. This is, as we might observe, the use case for the equality and inequality operators mentioned at the beginning of this section.
+
+\begin{definition}
+Let $A$ be a set and $R$ be a relation on $A \times A$. A relation is
+\begin{itemize}
+    \item \textit{reflexive} if $(a, a) \in R$ for every $a \in A$,
+    \item \textit{symmetric}, if for all $a, b \in A$, $(a, b) \in R \implies (b, a) \in R$.
+    \item \textit{transitive} if for all $a, b, c \in A$, $(a, b) \in R, (b, c) \in R \implies (a, c) \in R$.
+\end{itemize}
+
+We write $aRb$ if $(a, b) \in R$.
+
+A relation is called an \textbf{equivalence relation} if it is reflexive, symmetric, and transitive.
+\end{definition}
+
+\section{Exercises}
+
+ \begin{enumerate}
+   \item \input{Ch3/2_ex/problem_1}
+   \item \input{Ch3/2_ex/problem_2}
+   \item \input{Ch3/2_ex/problem_3}
+   \item \input{Ch3/2_ex/problem_4}
+   \item \input{Ch3/2_ex/problem_5}
+   \item \input{Ch3/2_ex/problem_6}
+   % add more problem files here
+ \end{enumerate}
+

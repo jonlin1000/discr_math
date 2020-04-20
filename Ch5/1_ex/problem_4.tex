@@ -1,0 +1,11 @@
+Define a function $f(x,y)$, where $x$ and $y$ are allowed to be \textbf{natural numbers.} (which include $0$). Suppose $f$ has the following properties:
+\begin{itemize}
+    \item $f(n, n) = f(n, 0) = 1$ for all $n \in \mathbb{N}$.
+    \item $f(n + 1, k + 1) = f(n, k) + f(n, k + 1)$ for all natural numbers $n$ and $k$.
+    \item $f(n, m) = 0$ if $m > n$.
+\end{itemize}
+
+Prove by induction (on $n \geq 0$) that
+\[\sum_{i = 0}^nf(n, i) = 2^n.\]
+
+(Hint: when proving the inductive step, you will have to split the sum and reindex.)

@@ -1,0 +1,21 @@
+Consider the pseudocode for the following recursive function, which takes a list $\verb|ls| = (a_0, \dots, a_n)$ and a function $f$ and returns a list $(f(a_0), f(a_1), \dots, f(a_n))$ for any non-negative integer $n$.
+
+In the code:
+\begin{itemize}
+    \item \verb|length| is a function returning the length of a list,
+    \item \verb|ls[0]| accesses the first element of the list.
+    \item \verb|pop(ls)| returns the original list but without the first element. For example, $\verb|pop|(2, 5, 3) = (5, 3)$.
+    \item \verb|::| represents a push operator. For example, $2\verb|::|(5, 3)$ will be the list $(2, 5, 3)$.
+\end{itemize}
+
+\begin{verbatim}
+    function map(ls, f) =
+        if (length(ls) = 0) {
+            return () /* the empty list. */
+        }
+        else {
+            return f(ls[0])::map(pop(ls), f);
+        }
+\end{verbatim}
+
+Prove that the code above is \textbf{correct}. That is, given any list $(a_0, \dots, a_n)$ prove that \verb|map| will return $(f(a_0), f(a_1), \dots, f(a_n))$. (Hint: you'll need to use induction. What are you inducting on? Once you have this in mind this problem turns out to be very simple.)

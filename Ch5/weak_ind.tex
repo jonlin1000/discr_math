@@ -1,0 +1,93 @@
+\section{Summation notation, product notation}
+
+One should read 
+\[\sum_{k = m}^na_m\] as the value of \verb|result| after executing this code:
+\begin{verbatim}
+    result = 0;
+    for (k = m; k <= n; k = k + 1) {
+        result = result + a_m.
+    }
+\end{verbatim}
+
+Ideally, most of the time you should see the above sum as just a compactified way to write 
+\[a_m + a_{m + 1} + \cdots + a_n\]
+
+Notice that this code does not make sense if $m > n$, because the index $k$ is \textbf{always} incremented. In this case we always take the sum to be $0$ by default. So a sum like
+\[\sum_{k = 1}^0k\] is equal to $0$, not $1$.
+
+Similarly for products. one should read \[\prod_{k = m}^na_m\] as the value of \verb|result| after executing this code:
+
+\begin{verbatim}
+    result = 1;
+    for (k = m; k <= n; k = k + 1) {
+        result = result * a_m.
+    }
+\end{verbatim}
+
+Again this code does not make sense if $m > n$. In this case we always take the product to be $1$ by default.
+
+The following equations are some useful properties related to summations.
+\[\sum_{i = m}^n(a_i + b_i) = \sum_{i = m}^na_i + \sum_{i = m}^nb_i\]
+The above property is often colloquially referred to as ``splitting a sum''.
+\[\sum_{i = m}^nca_i = c\sum_{i = 1}^ma_i\] if $c$ is a constant that does not depend on the index $i$.
+\[\sum_{i = m}^na_i = a_m + \sum_{i = m + 1}^na_i\]
+\[\sum_{i = m}^na_i = a_n + \sum_{i = n}^{n-1}a_i\]
+Note that the above two equations make sense if $n \leq m$. (What happens when $n = m$?)
+
+By yourself come up with some analogous formulas for products.
+
+\section{The Principle of Mathematical Induction}
+
+\begin{definition}
+    The proposition $P(n)$ is a logical statement involving some value $n$.
+\end{definition}
+
+It is very helpful to consider an example or two. Define $P(n)$ to be the logical statement that $n = 1$. In other words, $P(n) \equiv (n = 1)$. Then $P(n) \equiv T$ if and only if $n = 1$, which is true but is silly to say. Another example: define $P(n) \equiv (2 \mid n)$. Then
+\[P(n) \equiv \begin{cases}T, & 2 \mid n \\ F, & 2 \nmid n\end{cases}\]
+
+But as of now we aren't really interested in examples like this. We'd like to know if there is a way to show that $P(n) \equiv T$ for $n \geq k$ for some integer $k$, for example.
+
+For example, we'd like to figure out whether or not
+\[\sum_{i = 1}^n(2i - 1) = n^2\] for all $n$. It seems true! But how might we prove it? This leads us to the principle of mathematical induction, which is the basis for the majority of proofs we'll do for the rest of the semester.
+
+\begin{theorem}
+Let $a$ be any natural number. And let $P(k)$ be a proposition about $k \in \mathbb{N}$. Assume the following claims are true:
+\begin{itemize}
+    \item $P(a) \equiv T$
+    \item Assuming $P(k)$ is true for any natural number $k \geq a$, we can prove that $P(k + 1)$ is true.
+\end{itemize}
+
+Then $P(k)$ is true for all $k \geq a$.
+\end{theorem}
+\begin{proof}
+Omitted. To convince yourself it is true you might draw a number line.
+\end{proof}
+
+To actually prove a proposition $P(x)$ is true for all $x \geq a$ using induction, it is a two step process:
+
+\begin{enumerate}
+    \item First show that $P(a) \equiv T$.
+    \item Next, assuming that $P(k)$ is true for $k \geq a$, prove that $P(k + 1)$ is true.
+\end{enumerate}
+
+Once you show the above two steps by the principle of mathematical induction you have shown the claim for all natural numbers $x \geq a$.
+
+In 250, here is how we format this proof, which is a 3 step process. For convenience, I will take $a = 0$. How to prove $P(n)$ for all $n \geq 0$:
+\begin{enumerate}
+    \item Inductive Base: Show that $P(0) \equiv T$.
+    \item Inductive hypothesis: State the following: For all $n = k \geq 0$ assume that $P(k)$ is true.
+    \item Inductive Step: Assuming that $P(k)$ is true, prove that $P(k + 1)$ is true.
+\end{enumerate}
+
+We will do several examples of how to do this in lecture and discussion, and you have chance to practice with the below exercises (which are rather hard apart for most of problem 1).
+
+\section{Exercises}
+\begin{enumerate}
+    \item \input{Ch5/1_ex/problem_2}
+    \item \input{Ch5/1_ex/problem_1}
+    \item \input{Ch5/1_ex/problem_3}
+    \item \input{Ch5/1_ex/problem_4}
+    \item \input{Ch5/1_ex/problem_5}
+    \item \input{Ch5/1_ex/problem_6}
+\end{enumerate}
+

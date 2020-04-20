@@ -1,0 +1,103 @@
+Mods are a tricky concept to get right because they rely on internalizing concepts that you've learned earlier very well. Once you've internalized those concepts you'll see that modular arithmetic is really just a recasting of divisibility. In this handout, I'd like to highlight the correspondence between divisibility, mods, and the quotient remainder theorem.
+
+\begin{tcolorbox}
+\textbf{Quotient Remainder Theorem}: Suppose that $n$ is an integer and $m$ is a positive integer. Then there exist \textit{unique} integers $q$ and $r$ with $0 \leq r < m$ where
+\[n = qm + r.\]
+\end{tcolorbox}
+
+\begin{tcolorbox}
+Let $a$ and $b$ be any integers. We say that $a$ divides $b$ (and we write $a \mid b$) if there exists an integer $k$ such that 
+\[a \cdot k = b.\]
+\end{tcolorbox}
+
+We are going to define mods in terms of divisibility. To motivate the definition a little bit, when we take mods we want to have that two numbers are equivalent modulo $n$ if they have the same remainder (as in the quotient remainder theorem) when they are divided out by $n$. So for example, $15 \equiv 3 \pmod{4}$ because $15 = 4(3) + 3$. Here is the definition:
+\begin{tcolorbox}
+Let $a$ and $b$ be integers, and let $n$ be a positive integer. We say that $a$ is congruent to $b$ modulo $n$ (and we write $a \equiv b \pmod{n}$) if $n \mid (a - b)$.
+\end{tcolorbox}
+
+Let's pick apart this definition a little bit. In the above example, we have $15 \equiv 3 \pmod{4}$. Is that true? It is, since we see that $15 - 3 = 12 = 4(3)$, so $4 \mid (15 - 3)$, as we wanted. (If you are confused, I am taking $a = 15$, $b = 3$ in this example).
+
+To get you used to the proof approaches using modular arithmetic I will do a simple proof involving mods below.
+
+\begin{tcolorbox}
+$a \equiv b \pmod{n}$ if and only if $a - b \equiv 0 \pmod{n}$.
+ \begin{tcolorbox}
+  Proof:
+  \begin{enumerate}
+      \item Suppose that $a \equiv b \pmod{n}$.
+      \item By definition, $n \mid (a - b)$.
+      \item By algebra, $a - b = (a - b) - 0$.
+      \item By substituting $(3)$ into $(2)$, 
+      \[n \mid (a-b) - 0\].
+      \item By definition $a - b \equiv 0 \pmod{n}$, as desired.
+      
+      \item The converse is left as an exercise to the reader.
+  \end{enumerate}
+ \end{tcolorbox}
+\end{tcolorbox}
+
+There are three important properties of mods which you will use in modular arithmetic problems. I provide proofs for two of these below.
+
+\begin{tcolorbox}
+    If $a \equiv b \pmod{n}$ and $c \equiv d \pmod{n}$, then $a + c \equiv b + d \pmod{n}$.
+    \begin{tcolorbox}
+        Proof:
+        \begin{enumerate}
+            \item Suppose the above.
+            \item By definition, $n \mid (a-b)$ and $n \mid (c-d)$.
+            \item By definition of divisibility, there exist integers $k_1$ and $k_2$ such that $a - b = nk_1$ and $c - d = nk_2$.
+            \item By (3) and algebra, we add the two equations together to get 
+            \[(a - b) + (c - d) = n(k_1 + k_2).\]
+            \item Rearranging the LHS we get
+            \[(a + c) - (b + d) = n(k_1 + k_2).\]
+            \item $k_1, k_2 \in \mathbb{Z}$ by (3). So by closure $k_1 + k_2 \in \mathbb{Z}$.
+            \item By (6), (5), definition of mods, it follows that $a + c \equiv b + d \pmod{n}$, as desired.
+        \end{enumerate}
+    \end{tcolorbox}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+ If $a \equiv b \pmod{n}$ and $c$ is any integer then $ca \equiv cb \pmod{n}$.
+ \begin{tcolorbox}
+  Proof: left as exercise for the reader.
+ \end{tcolorbox}
+\end{tcolorbox}
+
+\begin{tcolorbox}
+ If $a \equiv b \pmod{n}$ and $c \equiv d \pmod{n}$ then $ac \equiv bd \pmod{n}$.
+ \begin{tcolorbox}
+  \begin{enumerate}
+      \item Given the above:
+      \item By the first thing proved in this handout, $a - b \equiv 0 \pmod{n}$ and $c - d \equiv 0 \pmod{n}$.
+      \item By one of the above facts, we have $c(a - b) \equiv 0 \pmod{n}$ and $b(c-d) \equiv 0 \pmod{n}$ (because $c \times 0 = 0$ and similarly with $b$).
+      \item By addition of mods, we get
+      \[c(a-b) + b(c-d) \equiv 0 \pmod{n}\]
+      \item By algebra on the left hand side we get
+      \[ac - bd \equiv 0 \pmod{n}\]
+      \item This gives us $ac \equiv bd \pmod{n}$, as desired.
+      
+  \end{enumerate}
+ \end{tcolorbox}
+\end{tcolorbox}
+
+Finally, we'll recast the remainder theorem in terms of mods. From the equation $n = qm + r$, we get $n - r = qm$, so we have $m \mid n - r \iff n \equiv r \pmod{m}$. With this in mind, here is the reformulation of the quotient remainder theorem:
+
+\begin{tcolorbox}
+ \textbf{QRT in terms of modular arithmetic}: Suppose that $n$ is any integer and $m$ is a positive integer. Then there exists a unique integer $r$ where $0 \leq r \leq m$ and 
+ \[n \equiv r \pmod{m}.\]
+\end{tcolorbox}
+
+Below are the problems. Everyone should attempt problem 2 (and 3a). Everything else is more challenging and should be attempted at your own discretion.
+
+ \begin{enumerate}
+   \item \input{Ch6/2_ex/problem_1}
+   \item \input{Ch6/2_ex/problem_2}
+   \item
+   \begin{enumerate}
+       \item \input{Ch6/2_ex/problem_3a} (Hint: this is a finite domain problem.)
+       \item \input{Ch6/2_ex/problem_3b}
+       \item \input{Ch6/2_ex/problem_3c}
+   \end{enumerate}
+   \item (\textbf{Challenge Problem}) Suppose $ab \equiv ac \pmod{d}$. Then prove that $b \equiv c \pmod{\frac{d}{\gcd(a, d)}}$. Here $\gcd(a, d)$ is the \textit{greatest common divisor} of $a$ and $d$, that is, the greatest integer $k$ such that $k \mid a$ and $k \mid d$.
+   \item Prove that there is no positive integer $n$ such that $4n^2 - 4 \equiv 0 \pmod{19}$.
+ \end{enumerate}
