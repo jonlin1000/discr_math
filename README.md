@@ -18,5 +18,17 @@ With additions once these sections have been loosely implemented.
 
 Todo:
 
-- Create the book format.
-- Create the relevant chapters.
+- Add content for Chapter 7.
+- Expand on Chapter 1, with relevant definitions and examples. Write up the recursive presentation of boolean expressions.
+- Expand on Chapter 2, especially about formal circuits. Rework the adders section to be an actual section and not just a big exercise to the reader.
+- Add more relevant problems to Chapter 2.
+- Write a proper exposition for chapter 3. Formally define all the things. Define Cartesian product.
+- Write something about equivalence relations. Motivation for relations needs to be written up.
+- Write proper exposition for proofs in Chapter 4. Highlight the connection between formal logic and proofs, especially the goal in proving things.
+- Write exposition for proofs by contrapositive and contradiction. Add some examples.
+- Write exposition for the field axioms for the rational and real numbers, and create various exercises.
+- Write exposition for the Well Ordering Principle. Write a proof of Well Ordering implies Principle of Mathematical Induction. Write a proof of Well Ordering implies Principle of Strong Mathematical Induction. Write a proof of Weak Induction implies Strong Induction. Write up examples. Add lots of problems.
+- In Chapter 6, add more advanced number theory topics, such as RSA and Miller Rabin. Add more exercises.
+
+- Get rid of references to "class" or "discussion", remnants from discussion section notes.
+- 
