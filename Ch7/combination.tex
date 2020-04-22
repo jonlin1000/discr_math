@@ -1,0 +1,36 @@
+Let's modify the permutation problem, so that we do not care in which order the $s$ objects are chosen from the $n$ objects. This amounts to the following problem: How many ways are there to choose a size $s$ subset of objects from a size $n$ set of objects? (Remember that order does not matter when listing a subset.)
+
+In order to indicate the general solution we will solve a more specific example.
+\begin{example}
+ Suppose I have $6$ different colors of paint, and I must choose $4$ of them to mix together (so that the order in which I choose the paint does not matter). How many ways are there for me to make such a choice?
+\end{example}
+\begin{proof}[solution]
+ From the permutation problem, we have seen that there are $P(6, 4) = 6!/2! = 360$ ways to choose $4$ colors in order. However, this is not the answer to the problem, because we count certain combinations as different when they are really the same. For example, the ordered selection (red, blue, green, yellow) will be counted differently from the ordered selection (blue, green, red, yellow). This means for each distinct combination, we count it $4! = 24$ times (since this is the number of ways to arrange $n!$ in a line.
+ 
+ This means that the number of permutations is the number of combinations times $4!$. So there are $\frac{1}{4!}P(6,4) = 15$ ways to choose $4$ colors without regard to order.
+\end{proof}
+
+We can directly generalize this problem to solve the general combination problem. We call a collection of $r$ objects chosen from a collection of $n$ objects, where the order does not matter, a \textit{combination} of $r$ objects from $n$. From the permutation problem there are $P(n, r) = n!/(n-r)!$ ways to choose $r$ objects in a certain order. For each \textit{combination} of $r$ objects there are $r!$ different orderings associated with it. Since each distinct combination gives rise to $r!$ different permutations, and each permutation can be realized as a combination, we conclude that there must 
+\[\frac{1}{r!}P(n, r) = \frac{n!}{r!(n-r)!}\]
+distinct combinations of $r$ objects from $n$ objects. This number is important enough that we give it a special notation. We define the ``binomial coefficient'' $\binom{n}{r}$ (read ``$n$ choose $r$'') to be the value $\frac{n!}{r!(n-r)!}$.
+
+The method of solving the combination problem from the permutation problem is an important (often only implicitly discussed!) technique, which we call \textbf{the principle of division}.
+
+\begin{tcolorbox}
+ Suppose I want to count the number a certain collection of objects $S$, and that I know the number of objects to a certain other collection of objects $T$ with the following properties:
+ \begin{itemize}
+     \item For each element $s \in S$ we can associate it with exactly $r$ objects in $T$.
+     \item  Each object in $T$ can only be associated with a unique object in $S$.
+ \end{itemize}
+
+Then it follows that the number of objects in the collection $S$ is $|T|/r$, or the number of objects in $T$ divided by $r$.
+\end{tcolorbox}
+
+\section{Probability in terms of Combinatorics}
+
+With knowledge of combinatorics, it is possible to give the answer to some basic questions about probability. Here is the basic idea:
+
+\begin{tcolorbox}
+ Suppose that I have a \textit{finite} (this is important!) collection $S$ of objects, and I want to know the probability that I choose some object with a certain property from $S$. Let $T$ denote the subcollection of objects with this property. Then the desired probability is $|T|/|S|$, or the size of $T$ divided by the size of $S$.
+\end{tcolorbox}
+Remark that this collection is finite is important, because implicitly this probability was attained under the uniform distribution, which does not make sense for infinite collections.

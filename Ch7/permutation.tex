@@ -1,0 +1,16 @@
+A general class of examples which follow from the principle of multiplication are the class of permutation problems, from which the horse race problem is an example. Recall that there were $10 \times 9 \times 8$ ways to choose a race podium for $10$ horses, with no ties. We can rewrite this as follows:
+
+\[10 \times 9 \times 8 = \frac{10 \times 9 \times 8 \times (7 \times \cdots \times 1)}{(7 \times \cdots \times 1)} = \frac{10!}{7!}.\]
+
+This division of factorials will form the general formula for the general class of permutation problems. First we will define the permutation problem. Suppose that we have $n$ distinct objects, and we need to choose $s$ of these objects in an \textit{ordered} manner (so which object we choose first/second/third matters). How many ways are there of doing this? We call such a selection of $s$ objects a \textit{permutation} of $s$ objects from $n$.
+
+By the logic of the horse race problem, there are $n$ ways of choosing the first object, and then there are $(n-1)$ ways of choosing the second object, and so on. We do this $s$ times, and on the $s$th choice there are $(n-s + 1)$ ways of choosing the $s$th object. It follows by the principle of multiplication that there are
+\[n(n-1)\dots(n-s+1) = \frac{n(n-1)\dots(n-s+1)(n-s)(n-s-1)(\dots)2\cdot1}{(n-s)(n-s-1)(\dots)2\cdot1} = \frac{n!}{(n-s)!}\]
+
+ways of choosing $s$ objects from $n$ objects in an ordered manner.
+
+This formula is important enough that we give it some convenient notation. We represent $P(n, k) = \frac{n!}{(n-k)!}$. It follows that $P(n, k)$ is the number of ways to choose $k$ objects in an ordered manner from $n$ objects.
+
+When $k = n$, then the number $P(n, k)$ amounts to the number of ways to order $n$ objects in a line. In this case, we have $P(n, n) = n!$. So there are $n!$ ways to order $n$ objects in a line.
+
+%talk about bijections.

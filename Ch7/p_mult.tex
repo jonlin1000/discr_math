@@ -1,0 +1,21 @@
+\begin{example}
+ Suppose I have a diner menu. I have 3 choices for drink (milk, tea, coffee), 3 choices of toast (wheat, white, rye). How many ways can I choose a drink and toast combo?
+\end{example}
+\begin{proof}[Solution]
+ For each choice of drink, there are $3$ ways to choose a toast, and these $3$ ways are unrestricted. there are $3$ drinks, so it follows there must be $3 + 3 + 3 = 3 \times 3 = 9$ ways to choose a drink and toast combo.
+\end{proof}
+
+This was the most elementary application of what is called the principle of multiplication. Here is another less elementary application:
+\begin{example}
+ Suppose I want to bet on a horse race. There are $10$ horses. How many ways can we fill the podium (that is, the first 3 places)? Assume there are no ties.
+\end{example}
+\begin{proof}[Solution]
+ There are $10$ horses which can come in first place. Then, whichever horse comes in first, there are only $9$ horses which can come in second place (as the horse that won cannot have been second place at the same time). So there are $10 \times 9 = 90$ ways in which the first two places can be filled. Similarly, after second place has been chosen there are only $8$ horses that can come in third place. It follows that there are $90 \times 8 = 720$ ways to fill the first $3$ spots in the race.
+\end{proof}
+
+Let's illustrate what was different between the first and second examples. In the first example, the choice of the drink did not affect the number of toasts we could choose from after we had chosen the drink. However, in the horse race example, the first choice (choosing first place) limited the number of horses we had to choose from in the second place. However, the key idea is that the \textbf{number} of horses we are allowed to choose from in the second choice is always the same. So in the drink and toast example, there are three ways we could make the first choice (the drink), and no matter the first choice there are three ways we could make the second choice (the toast). In the horse race example, there are always $10$ ways we could make the first choice, and no matter the first choice there are always $9$ ways we could make the second choice (and so on). This observation makes the basis for the principle of multiplication:
+
+\begin{tcolorbox}
+ Suppose we have to make $s$ successive choices, and that we know that at step $j$ there are $n_j$ ways to make a choice. Then there are
+ \[\prod_{j = 1}^sn_j\] total ways to make all $s$ choices. 
+\end{tcolorbox}
