@@ -1,0 +1,43 @@
+We have (?) stated the principle of Mathematical Induction. In the following sections, we attempt to demonstrate that the principle of Mathematical Induction is a statement that requires ``proof''. The main technical detail needed to prove this principle is the well ordering principle of the natural numbers. First we indicate what it means for a set to be well ordered.
+
+\begin{definition}
+Let $S$ is a set with an order relation $\leq$ on $S \times S$. Then $S$ (along with the order relation $<$) is called well ordered if every subset of $S$ has a least element.
+\end{definition}
+
+In other words, for any non-empty subset $T \subset S$ there exists $t_0 \in T$ such that $t_0 \leq t$ for all $t \in T$.
+
+\begin{example}
+The set $\mathbb{Z}$ is not well ordered, for $\mathbb{Z}$ has no least element. In that case, consider the set $Y = \mathbb{Z} \cup \{-\infty\}$ with the usual order relation plus the order $-\infty < a$ for all $a \in \mathbb{Z}$. Then $Y$ has a least element (namely, $-\infty$) but is not well ordered, for the subset $\mathbb{Z}$ of $Y$ has no least element.
+\end{example}
+
+The above example leads us to a first elementary observation: any subset of a well ordered set is well ordered. This simply follows from the fact that a subset of a subset is a subset of the original set.
+
+With these preliminary details we can state the well ordering principle of the natural numbers. Usually, this is taken as an \textbf{axiom} of the natural numbers\footnote{If we formally define the natural numbers, then the well ordering principle can actually be proven. But this is beyond the scope of this book (for now).}. This means that we take it to be the 
+\begin{tcolorbox}
+The set of natural numbers $\mathbb{N}$, along with the usual ordering $<$, is a well ordered set.
+\end{tcolorbox}
+
+This makes it possible to come up with various interesting examples of well ordered sets.
+
+\begin{example}
+Consider the set $\{1, 2\} \times \mathbb{N}$ in the \textit{dictionary order}: we say that $(a, b) < (c, d)$ if $a < c$ or if $a = c$ then $b < d$. Then $\mathbb{N} \times \mathbb{N}$ is well ordered. To see this, let $S$ be a non-empty subset of $\{1,2\} \times \mathbb{N}$. Then consider all the elements of $S$ with $1$ as the first component. If this subset is non-empty then it follows by the well ordering principle on $\mathbb{N}$ that there is a least element of the form $(1, k)$. Otherwise, we can apply the same reasoning to conclude that there must be a least element of the form $(2, k)$.
+%TODO: explain this example better. 
+\end{example}
+
+The well ordering principle is powerful. We will first use it to prove the quotient remainder theorem (which was first introduced in (atm nowhere as of now)) here, and we will use it later in Chapter 7 to prove some fundamental results about divisibility.
+
+\begin{theorem}
+Suppose that $a$ is any integer and $b$ is any positive integer. Then there exist unique integers $q$ and $r$ such that $0 \leq r < b$ and we have
+\[a = qb + r.\]
+The numbers $q$ and $r$ are called the \textbf{quotient} and \textbf{remainder} of the division of $a$ by $b$.
+\end{theorem}
+The proof idea is very simple. In the theorem statement, the \textit{remainder} $r$ is intuitively in a sense the ``smallest'' positive value of remainder we can get by subtracting integer multiples of $b$ from $a$. We make this reasoning precise by invoking the well ordering principle to explicitly obtain $r$.
+\begin{proof}
+Let 
+\[S = \{n \in \mathbb{Z} \mid n = a-kb, k\in\mathbb{Z}, n \geq 0\}.\] That is, $S$ is all the non-negative values $a - kb$ where $k$ ranges across integer values. Then $S$ is a subset of $\mathbb{N} \cup \{0\}$, which is well ordered because $\mathbb{N}$ is well ordered (by the well ordering principle). It follows that $S$ has a least element $r$. Let $q$ be the value such that $a - qb = r$ (which is possible precisely because $r$ is contained in $S$). Then $a = qb + r$.
+
+Now all that is left is to show that this representation $a = qb + r$ is unique. To show this suppose that there is another pair $q'$ and $r'$ of integers with $0 \leq r' < b$ we also have $a = q'b + r'$. Subtracting both equations we have that
+\[0 = (q - q')b + (r-r').\] Since $0 \leq r, r' < b$ it follows that $|r - r'| < b$ so we get hte equation
+\[|q - q'|b < b \implies |q - q'| < 1.\] Since $q$ and $q'$ are integers it follows that $q = q'$ and hence $r = r'$, showing that this representation $a = qb + r$ is unique.
+\end{proof}
+
