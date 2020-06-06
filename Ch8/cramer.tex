@@ -1,0 +1,28 @@
+\subsection{Motivation}
+
+Consider a system of linear equations in two variables, such as
+
+\begin{align*}
+y_1 &= ax_1 + bx_2 \\
+y_2 &= cx_1 + dx_2.
+\end{align*}
+
+We would like to solve for $x_1$ and $x_2$ in terms of $y_1$ and $y_2$. Presumably, these solutions will have expressions involving $a$, $b$, $c$, and $d$. To solve this equation for $x_1$, we first eliminate the second variable by multiplying the first and second equations by appropriate constants, respectively:
+
+\begin{align*}
+dy_1 &= adx_1 + bdx_2 \\
+by_2 &= bcx_1 + bdx_2.
+\end{align*}
+
+Subtracting the second equation from the first, and solving for $x_1$, we get
+\[x_1 = \frac{dy_1 - by_2}{(ad-bc)}.\]
+In a similar manner we can solve for $x_2$ as well.
+
+Now consider an alternative perspective. We can rewrite the system of linear equations that we are considering as a matrix vector equation
+\[\begin{bmatrix}y_1 \\ y_2 \end{bmatrix} = \begin{bmatrix}a & b \\ c & d\end{bmatrix}\begin{bmatrix}x_1 \\ x_2\end{bmatrix}.\]
+
+Then in the language of determinants, we find that 
+\[x_1 = \frac{\det{ \begin{bmatrix}y_1 & b \\ y_2 & d\end{bmatrix}}}{\det \begin{bmatrix}a & b \\ c & d\end{bmatrix}}\] and
+\[x_2 = \frac{\det{ \begin{bmatrix}a & y_1 \\ c& y_2\end{bmatrix}}}{\det \begin{bmatrix}a & b \\ c & d\end{bmatrix}}.\]
+
+This is the $2$ dimensional case of \textit{Cramer's Rule}.
