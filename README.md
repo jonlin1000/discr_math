@@ -31,4 +31,4 @@ Todo:
 - In Chapter 6, add more advanced number theory topics, such as RSA and Miller Rabin. Add more exercises.
 
 - Get rid of references to "class" or "discussion", remnants from discussion section notes.
-- 
+- Add a proper bibliography for sources that inspired the book.
