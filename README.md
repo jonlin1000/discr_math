@@ -10,7 +10,8 @@ Currently, the sections will be loosely based on the following:
 5. Basic proof techniques. The Well Ordering Principle, and proof by induction ("weak" and "strong" variants)
 6. Basic number theory. Applications of basic proof techniques. Divisibility, modular arithmetic.
 7. Counting and Probability. permutations and combinations. Probability, expectation, variance.
-8. Appendix: Sequences and Sums
+8. Basic Linear Algebra. Matrix Multiplication and applications.
+9. Appendix: Sequences and Sums
 
 With additions once these sections have been loosely implemented.
 
