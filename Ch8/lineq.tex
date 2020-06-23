@@ -1,0 +1,39 @@
+Most readers who attended the equivalent of American middle or high school will recall having to solve systems of equations. A general form would be of two by two systems, which look like this:
+\begin{align*}
+ax + by &= z_1 \\
+cx + dy &= z_2.
+\end{align*}
+
+In general, we will be dealing with much larger systems of linear equations where the number of variables to be solved for and the number of equations can vary.
+
+\begin{definition}
+An $m \times n$ system of linear equations is a system of equations of the form
+\begin{align*}
+a_{11}x_1 + \cdots + a_{1n}x_n &= y_1 \\
+\cdots \\
+a_{m1}x_1 + \cdots + a_{mn}x_n &= y_m.
+\end{align*}
+where the $a_{ij}$ and the $y_k$ are predetermined coefficients in any field (refer to ??). The variables $x_1, \dots, x_n$ are referred to as \textbf{unknowns} or \textbf{unknown variables}. 
+\end{definition}
+
+In this chapter, what we will be most focused on are methods that that can determine solutions to these linear equations. That is, we would like to find values $(b_1, \dots, b_n)$ such that all the equations in the definition above are true if we replace $x_i$ with $b_i$ for each $i$. For example, if we have the linear equation 
+\begin{align*}
+ax + by &= c \\
+dx + ey &= f \\
+\end{align*}
+then $x = g$, $y = h$ is a solution to this system of linear equations (In fact, it's the only solution).
+
+We might first observe the following. Suppose that $(b_1, \dots, b_n)$ is a solution to the $m \times n$ system of linear equations
+\begin{align*}
+a_{11}x_1 + \cdots + a_{1n}x_n &= y_1 \\
+\cdots \\
+a_{m1}x_1 + \cdots + a_{mn}x_n &= y_m.
+\end{align*}
+Then $(b_1, \dots, b_n)$ is also a solution to the equation 
+\[\sum_{i = 1}^mc_i(a_{i1}x_1 + \cdots + a_{in}x_n) = \sum_{i = 1}^mc_iy_i\]
+where the $c_i$ are arbitrary coefficients. This is an example of a \textbf{linear combination} of the equations in our $m \times n$ system of linear equations. So if we had a second system of linear equations where each equation in the second system was a linear combination of the equations in the first system, then every solution of the first system would be a solution in the second system. This observation is important for proving the following, which is the basis for our methods to solve linear systems of equations:
+
+\begin{theorem}
+Suppose $A$ and $B$ are two systems of linear equations which have the property that each equation in one system is a linear combination of equations in the other system. Then $A$ and $B$ have exactly the same solutions.
+\end{theorem}
+
