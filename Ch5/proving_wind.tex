@@ -1,0 +1,50 @@
+Now we prove from the Well Ordering principle the Principle of Mathematical Induction. The idea will be as follows: we will consider the \textit{smallest} element such that a proposition is false, and then we will use the assumptions of the Priniciple of Mathematical Induction to derive contradictions. Hence the Principle of Mathematical Induction is true as stated.
+
+In fact, if we assume the Principle of Mathematical Induction as a given statement, we can use it to show the well ordering principle of the natural numbers. But to give a rigorous proof we need the Principle of Strong Induction, which we will prove from the Principle of Weak Induction later.
+
+\begin{theorem}
+Suppose that $P: \mathbb{N} \to \{T, F\}$ is a boolean function with the following properties:
+\begin{itemize}
+	\item $P(1) \equiv T$
+	\item $P(n) \equiv T \implies P(n + 1) \equiv T$ for all $n \in \mathbb{N}$.
+\end{itemize}
+Then $P(n) \equiv T$ for all $n \in \mathbb{N}$.
+\end{theorem}
+
+\begin{proof}
+Assume for the sake of contradiction that there is some $s \in \mathbb{N}$ such that $P(s) \equiv F$. Let $S$ be the set of all $s$ where $P(s) \equiv F$. By assumption, $S \neq \varnothing$, and hence by the well ordering principle there is a minimal element $r \in S$. We see that $r \neq 1$ because $P(1) \equiv T$ by assumption. So $r - 1 \in \mathbb{N}$. But since $r \in S$ is minimal, we must have that $P(r - 1) \equiv T$ (or else our assumption about $r$ being the minimal element in $S$ would be wrong). But since $P(r - 1) \equiv T$, this implies that $P(r) \equiv T$ (by modus ponens). This is a contradiction and the conclusion follows.
+\end{proof}
+
+To prove the other direction (namely, that the Principle of Mathematical Induction implies the Well Ordering Principle), we need the stronger principle of Strong Induction. So what we will do is use the Principle of Mathematical Induction to prove the Principle of Strong Induction first.
+
+\begin{theorem}
+Suppose that the Principle of Mathematical Induction is true. Suppose that $P: \mathbb{N} \to \{T, F\}$ is a boolean function with the following properties:
+\begin{itemize}
+	\item $P(1) \equiv T$
+	\item If $P(k) \equiv T$ for all $1 \leq k \leq n$ for $n \geq 1$, then $P(n + 1) \equiv T$.
+\end{itemize}
+
+Then $P(n) \equiv T$ for all $n \in \mathbb{N}$.
+\end{theorem}
+
+\begin{proof}
+Define an auxiliary function $Q: \mathbb{N} \to \{T, F\}$ by the following:
+\[Q(n) \equiv \begin{cases} T & \text{$P(k) \equiv T$ for $1 \leq k \leq n$}\\ F & \text{otherwise.}\end{cases}\]
+Then by assumption, $Q(1) \equiv T$ and $Q(k) \equiv T$ implies that $P(n + 1)$ is true, which together with $Q(n)$ implies that $Q(n + 1) \equiv T$. Hence by the Principle of Mathematical Induction we have that $Q(n)$ is true for all $n \in \mathbb{N}$ which implies that $P(n)$ is true for all $n \in \mathbb{N}$, as desired.
+\end{proof}
+
+The converse statement is also true, this will be left as an exercise. Now that we have the principle of strong induction, we can use it now to prove the well ordering principle. This will show that the Well Ordering Principle and the Principle of Mathematical Induction are equivalent.
+
+\begin{theorem}
+The Strong Induction Principle implies the Well Ordering Principle. Hence the Well Ordering Principle and the Principle of Mathematical Induction are equivalent.
+\end{theorem}
+\begin{proof}
+Suppose that $S \subset \mathbb{N}$ is a non-empty set with no least element. Let $P$ be the following proposition:
+\[P(n) = \begin{cases}T & n \not\in S \\ F & n \in S\end{cases}.\]
+So the proposition $P(n)$ reflects whether or not $n$ is in the set $S$. Since $1$ is the least element in $\mathbb{N}$, we know that $1 \not\in S$ or else $S$ would have a least element. So $P(1) \equiv T$. Now suppose for any $n \in \mathbb{N}$ that $P(k) \equiv T$ for $1 \leq k \leq n$. Then by the definition of $P$ no natural number less than or equal to $n$ is in $S$. It follows that $n + 1 \not\in S$ or else $n + 1$ would be the least element in $S$. It follows that $P(n + 1) \equiv T$.
+
+By the Principle of Strong Induction it follows that $P(n) \equiv T$ for all $n \in \mathbb{N}$. This implies that no element $n \in \mathbb{N}$ is in $S$. So $S = \varnothing$. The Well Ordering Principle follows, as desired.
+\end{proof}
+
+\section{Exercises}
+\input{ch5/wopIndExercises}

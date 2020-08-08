@@ -19,7 +19,7 @@ The set of natural numbers $\mathbb{N}$, along with the usual ordering $<$, is a
 
 This makes it possible to come up with various interesting examples of well ordered sets.
 
-\begin{example}
+\begin{example} \label{dict_order}
 Consider the set $\{1, 2\} \times \mathbb{N}$ in the \textit{dictionary order}: we say that $(a, b) < (c, d)$ if $a < c$ or if $a = c$ then $b < d$. Then $\mathbb{N} \times \mathbb{N}$ is well ordered. To see this, let $S$ be a non-empty subset of $\{1,2\} \times \mathbb{N}$. Then consider all the elements of $S$ with $1$ as the first component. If this subset is non-empty then it follows by the well ordering principle on $\mathbb{N}$ that there is a least element of the form $(1, k)$. Otherwise, we can apply the same reasoning to conclude that there must be a least element of the form $(2, k)$.
 %TODO: explain this example better. 
 \end{example}
