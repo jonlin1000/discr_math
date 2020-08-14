@@ -1,0 +1,77 @@
+Consider what it means for a statement to be true (and respectively, to be false). One common idea is that statements that are true represent a fact. For example, it is true that upon first writing this book, the author was still living with his parents. The statement that the author is filthy rich and living the high life in Las Vegas is a false statement. In general, to assert the validity or invalidity of a statement, one must consider the objects in question and verify that whatever is asserted in the statement holds for them. For example, in order to confirm that the author is not filthy rich and living the high life in Las Vegas, one would check that the author does not make much money by checking their tax statements and check that he does not indeed live or frequent Las Vegas to have fun in morally dubious ways.
+
+For the rest of this book we will not be concerned with any sort of epistemological justification for why certain statements are true or false. We will simply work with objects that are simple enough that we will be satisfied that certain statements can be taken by default to be true or false if necessary, or we will be able to determine the truth or falsity of these claims. We will also simplify our notion of truth to be \textit{absolute}: to simplify our assumptions we will assume that any statement is either true, false, or ambiguous. In general we need to distinguish ambiguous statements. For example, consider the following statement:
+
+\[2 \oplus 2 = 4.\]
+
+Colloquially, one would read this as ``$2$ oplus $2$ equals 4''. But the truth of this statement is ambiguous, for one, because it depends on how the symbol $\oplus$ is defined. Suppose I defined it in the following way:
+\[a \oplus b = \begin{cases} a + b & b < a \\ a - b &b \geq a\end{cases}.\]
+Then if we are working with integers or any number system containing the integers this statement is false. If instead we defined it a little differently as
+\[a \oplus b = \begin{cases} a + b & b \leq a \\ a - b & b > a\end{cases}\]
+then the previous statement would be true.
+
+Now that we have motivated the notion of truth, in this section we will develop means of abstractly manipulating truth and falsity. The most abstract notion of this is denoted by the term \textbf{boolean algebra}. To make this notion more precise, we will introduce some terminology. There are only two values that we will work with explictly. These are true, denoted by $T$, and false, denoted by $F$. Some people prefer to work instead with the value $1$ and $0$, respectively. Whichever we choose, these two values are called boolean values. When refering to an expression that is one of $T$ or $F$, we will call such an expression a boolean expression. We will indicate examples of these later in this section.
+
+In general we will be concerned with manipulation of expressions where one can change an $F$ in the expression to $T$, and vice versa. This is because we are interested in when certain patterns of boolean expressions are always equivalent to one another (that is, always both $T$ or both $F$). For this purpose we will develop the notion of a boolean variable.
+
+\begin{definition}
+A boolean variable $p$ represents a boolean value $T$ or $F$. Usually this is ambiguous and not explicit. We denote an explicit assignment of a boolean value to a boolean variable using the $\equiv$ symbol. For example,
+\[p \equiv T\]
+denotes the explicit assignment from the boolean variable $p$ to the boolean value $T$. Usually we will use the letters $p$, $q$, $r$, and so on to represent boolean variables.
+
+If $p$ is a boolean variable assigned to a boolean value, we define $\shortsim p$ by the other boolean value. So if $p \equiv T$, then $\shortsim p \equiv F$, and vice versa.
+\end{definition}
+
+The full study of boolean algebra is the manipulation of boolean variables and boolean values using what are known as boolean operators. We will give an example of such an example below before introducing the definition.
+
+\begin{example}
+Given two boolean variables $p$ and $q$, the expression $p \land q$ is defined as follows:
+\[p \land q = \begin{cases} T & p \equiv T, q \equiv T \\ F & \text{otherwise.}\end{cases}\]
+The symbol $\land$ is known as the \textbf{logical and operator}. It is a binary operator (that is, it acts on two variables $p$ and $q$).
+\end{example}
+
+Why would we introduce such an operator in the first place? This is related to the colloquial use of ``and'' in everyday language. Intuitively, a statement of the form ``$P$ and $Q$'' is only true if $P$ and $Q$ are both true. The $\land$ operator simply reflects this statement.
+
+\begin{definition}
+A binary logical operator $\oplus$ is an operation that takes two boolean values $p$ and $q$ and outputs depending on the values $p$ and $q$ a boolean value denoted $p \oplus q$.
+
+A unary operator $\Delta$ is the same as a binary logical operator, but instead of two boolean values it takes one boolean value $p$ and outputs depending on the value $p$ a boolean value $\Delta p$.
+\end{definition}
+
+As we can verify above, the logical and operator is an example of a binary logical operator. The negation operation $\shortsim$ is an example of a unary logical operator. We will give more examples of logical operators we will study in depth below. 
+
+Given two boolean variables $p$ and $q$, there are only finitely many combinations of boolean values that $p$ and $q$ can evaluate to. This means that we can tabulate the values of $p \oplus q$ in a finite table which completely describes the logical operator $\oplus$. Such a table is called a \textbf{truth table}. Below is the truth table for $\land$.
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+$p$ & $q$ & $p \land q$ \\ \hline
+$T$ & $T$ & $T$         \\ \hline
+$T$ & $F$ & $F$         \\ \hline
+$F$ & $T$ & $F$         \\ \hline
+$F$ & $F$ & $F$         \\ \hline
+\end{tabular}
+\end{table}
+
+Here is how to interpret this table: each row's last entry denotes the value of $p \land q$ given the values for columns $p$ and $q$. We tabulate the value of $p \land q$ given every combination of $T$ and $F$ that can be assigned to $p$ and $q$ together.
+
+In general, truth tables can be extended to tabulate expressions of different variables. For example, here is a truth table for the boolean expression $(p \land q) \land r$.
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+$p$ & $q$ & $r$ & $p \land q$ & $(p \land q) \land r$ \\ \hline
+$T$ & $T$ & $T$ & $T$   &   $T$   \\ \hline
+$T$ & $F$ & $T$ &$F$    &   $F$  \\ \hline
+$F$ & $T$ & $T$ &$F$    &   $F$  \\ \hline
+$F$ & $F$ & $T$ &$F$    &    $F$ \\ \hline
+$T$ & $T$ &$F$ &$T$   &     $F$ \\ \hline
+$T$ & $F$ &$F$ &$F$    &     $F$ \\ \hline
+$F$ & $T$ & $F$&$F$    &    $F$  \\ \hline
+$F$ & $F$ & $F$&$F$    &     $F$ \\ \hline
+\end{tabular}
+\end{table}
+
+For this table, observe that we recorded all possible values for $p$, $q$, and $r$, of which there are $8$.

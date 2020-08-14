@@ -20,6 +20,8 @@ With additions once these sections have been loosely implemented.
 
 Todo:
 
+The important thing right now to do is to add more content.
+
 - Expand on Chapter 1, with relevant definitions and examples. Write up the recursive presentation of boolean expressions. Add proper motivation for the symbol pushing manipulation of boolean expressions in the section currently titled "Untitled."
 - Expand on Chapter 2, especially about formal circuits. Rework the adders section to be an actual section and not just a big exercise to the reader.
 - Add more relevant problems to Chapter 2. Learn material to put in chapter 2 to give it substance.
@@ -31,8 +33,8 @@ Todo:
 - ~~Write exposition for the Well Ordering Principle.~~ ~~Write a proof of Well Ordering implies Principle of Mathematical Induction.~~ ~~Write a proof of Well Ordering implies Principle of Strong Mathematical Induction.~~ ~~Write a proof of Weak Induction implies Strong Induction.~~ Write up examples. Add more problems about least upper bound property.
 - In Chapter 6, add more advanced number theory topics, such as RSA and Miller Rabin. Add some proofs of infinitude of primes. Add more exercises.
 - In Chapter 7, Discuss stars and bars. Discuss the principle of Inclusion and Exclusion. Formally define a discrete probability space. Define expectation and variance. Add applications to algorithms. Add exercises for each section so far. 
-- In Chapter 8, prove the Erdos-Szekeres theorem. Write about peak points. Prove the Infinite Ramsey Theorem. Prove the Finite Ramsey Theorem in two ways (from the Infinite Ramsey Theorem and by Induction)
-- Write Chapter 9. Define Multiplication of Matrices. Discuss the motivation for matrices. Read the relevant CLRS Chapter on Matrix Operations. Read about and describe relevant applications.
+- In Chapter 8, prove the Erdos-Szekeres theorem. Write about peak points. Prove the Infinite Ramsey Theorem. Prove the Finite Ramsey Theorem in two ways (from the Infinite Ramsey Theorem and by Induction). Prove Van der Warden's Theorem and discuss several applications. 
+- Write Chapter 9. Define Multiplication of Matrices. Discuss the motivation for matrices. Read the relevant CLRS Chapter on Matrix Operations. Read about and describe relevant applications. Write about polytopes?
 
 - Get rid of references to "class" or "discussion", remnants from discussion section notes.
 - ~~Add a proper bibliography for sources that inspired the book.~~
