@@ -42,7 +42,7 @@ As we can verify above, the logical and operator is an example of a binary logic
 
 Given two boolean variables $p$ and $q$, there are only finitely many combinations of boolean values that $p$ and $q$ can evaluate to. This means that we can tabulate the values of $p \oplus q$ in a finite table which completely describes the logical operator $\oplus$. Such a table is called a \textbf{truth table}. Below is the truth table for $\land$.
 
-\begin{table}[]
+\begin{table}[h]
 \centering
 \begin{tabular}{|l|l|l|}
 \hline
@@ -58,7 +58,7 @@ Here is how to interpret this table: each row's last entry denotes the value of 
 
 In general, truth tables can be extended to tabulate expressions of different variables. For example, here is a truth table for the boolean expression $(p \land q) \land r$.
 
-\begin{table}[]
+\begin{table}[h]
 \centering
 \begin{tabular}{|l|l|l|l|l|}
 \hline
@@ -74,4 +74,6 @@ $F$ & $F$ & $F$&$F$    &     $F$ \\ \hline
 \end{tabular}
 \end{table}
 
-For this table, observe that we recorded all possible values for $p$, $q$, and $r$, of which there are $8$.
+For this table, observe that for a complete table we needed to record all possible values for $p$, $q$, and $r$, of which there are $8$. In general if you have a logical expression with $n$ variables the truth table for this expression will have $2^n$ rows.
+
+In the following section we will start to indicate binary operators of interest (so that interesting logical expressions can be formed and studied).

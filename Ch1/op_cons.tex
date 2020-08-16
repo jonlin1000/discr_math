@@ -1,0 +1,48 @@
+In this section, we will indicate several important logical equivalences between the logical operators that we have introduced thus far. 
+
+Recall in the previous section that boolean expressions can be viewed as functions of each variable, so we deduced that  two expressions are logically equivalent if they have the same truth table. In fact, in some cases we can compare boolean expressions with different number of variables. For example, the logical expression $(p \land q) \lor (r \lor (\shortsim r))$ is logically equivalent to the logical expression $p \land q$. We can naturally view $p \land q$ as a function of the boolean variables $p$ and $q$, but we can also view this as a function of $p$, $q$, and $r$, where the result is independent of the value of $r$. So in this way we can compare logical expressions with varying or different boolean variables.
+
+Now we will show a basic logical equivalence called the \textbf{contrapositive law}. The contrapositive law asserts for any logical variables $p$ and $q$ we have the equivalence
+\[p \implies q \equiv (\shortsim p) \implies (\shortsim q).\]
+To demonstrate that this equivalence is true it suffices to show that each entry in their respective truth tables are equal, as demonstrated below:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+$p$ & $q$ & $p \implies q$ & & $p$ & $q$ & $(\shortsim q) \implies (\shortsim p)$ \\ \hline
+$T$ & $T$ & $T$ & & $T$ & $T$ & $T$ \\ \hline
+$T$ & $F$ & $T$ & & $T$ & $F$ & $T$ \\ \hline
+$T$ & $F$ & $F$ & & $T$ & $F$ & $F$ \\ \hline
+$F$ & $T$ & $T$ & & $F$ & $T$ & $T$ \\ \hline
+\end{tabular}
+\end{table}
+
+The same approach is used when demonstrating each logical equivalence in the table below. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+Logical Equivalence & Description \\ \hline
+$p \land q \equiv q \land p$, $p \lor q \equiv q \lor p$ & Commutativity of $\land$ and $\lor$\\ \hline
+$(p \land q) \land r \equiv p \land (q \land r)$ & Associativity of $\land$\\ \hline
+$(p \lor q) \lor r \equiv p \lor (q \lor r)$ & Associativity of $\lor$ \\ \hline
+$(p \lor q) \land r \equiv (p \land r) \lor (q \land r) $ & Distributivity of $\land$ over $\lor$ \\ \hline
+$(p \land q) \lor r \equiv (p \lor r) \land (q \lor r) $ & Distributivity of $\lor$ over $\land$ \\ \hline
+$p \land T \equiv p$ & $\land$ identity \\ \hline
+$p \lor F \equiv p$ & $\lor$ identity \\ \hline
+$\shortsim(\shortsim p) \equiv p$ & Double Negation \\ \hline
+$p \land p \equiv p \lor p \equiv p$ & Idempotence of $\land$ and $\lor$ \\ \hline
+$p \lor (p \land q) \equiv p \land (p \lor q) \equiv p$ & Absorption Property \\ \hline
+$a \implies b \equiv (\shortsim b) \implies (\shortsim a)$ & Contrapositive Property \\ \hline
+$a \implies b \equiv (\shortsim a) \lor b$ & Implication as Disjunction \\ \hline
+$a \odot b \equiv (a \implies b) \land (b \implies a)$ & XNOR as Conjunction \\ \hline
+\end{tabular}
+\end{table}
+
+Using logical equivalences like these, it is now possible to show that certain expressions are logically equivalent without explicitly constructing their truth tables.
+
+\begin{example}
+
+\end{example}

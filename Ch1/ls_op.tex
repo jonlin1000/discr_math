@@ -1,0 +1,74 @@
+We have already seen the logical and binary operator $\land$ and the unary logical negation operator $\shortsim$. 
+
+\subsection{The logical or ($\lor$) operator}
+The next operator we will introduce is the logical or operator $\lor$. The motivation for considering this operator is as follows. In colloquial language, a statement of the form ``$A$ or $B$'' is usually taken to mean ``either $A$ or $B$ is true.'' However, this excludes the scenario where $A$ and $B$ are both true. Taking this to account, the truth table for $\lor$ is the following:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline 
+$p$ & $q$ & $p \lor q$ \\ \hline
+$T$ & $T$ & $T$ \\ \hline
+$T$ & $F$ & $T$ \\ \hline
+$F$ & $T$ & $T$ \\ \hline
+$F$ & $F$ & $F$ \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{The NAND and NOR operators}
+The NAND and NOR operators, $\uparrow$ and $\downarrow$ respectively can be defined in terms of previously defined operators. The NAND operator $\uparrow$ is defined as
+\[p \uparrow q \equiv \shortsim(p \land q)\]
+and the NOR operator $\downarrow$ is defined as
+\[p \downarrow q \equiv \shortsim(p \lor q).\]
+
+In other words, NAND and NOR are simply the logical negations of the results of the logical and and logical or, respectively. The reader should create truth tables for these operators if they want more practice in creating truth tables.
+
+\subsection{The XOR and XNOR operator}
+As we have stated before, the or operator does not reflect colloquial language of the term, which more precisely reflects the term ``either-or''. This operator is true whenever exactly one of its arguments is true, and false otherwise. It is denoted by $\oplus$. The truth table for this operator is written below:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline 
+$p$ & $q$ & $p \lor q$ \\ \hline
+$T$ & $T$ & $F$ \\ \hline
+$T$ & $F$ & $T$ \\ \hline
+$F$ & $T$ & $T$ \\ \hline
+$F$ & $F$ & $F$ \\ \hline
+\end{tabular}
+\end{table}
+
+The XNOR operator $\odot$ is defined to be the negation of the XOR operator. Later (In chapter 4) we will see that this operator plays an important role in defining what are called biconditional statements.
+
+\subsection{The implies ($\implies$) operator}
+
+The truth table of the implies operator $\implies$ is defined below. 
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline 
+$p$ & $q$ & $p \implies q$ \\ \hline
+$T$ & $T$ & $T$ \\ \hline
+$T$ & $F$ & $T$ \\ \hline
+$F$ & $T$ & $F$ \\ \hline
+$F$ & $F$ & $T$ \\ \hline
+\end{tabular}
+\end{table}
+
+The motivation of this operator is to tabulate situations that can happen given that any given implication statement is true. Suppose that the following statement is true no matter what
+
+\begin{center}
+If it is raining outside, then Bob will carry an umbrella.
+\end{center}
+
+Then consider the statements ``it is raining outside'' and ``Bob is carrying an umbrella''. Consider the following scenarios.
+
+\begin{itemize}
+	\item It is possible for it to be both raining outside and for Bob to be carrying an umbrella at the same time, for the statement above is always true. So both statements being true is possible.
+	\item It is possible for it to be not raining outside and yet for Bob to be carrying an umbrella. For what if Bob carried an umbrella all the time? The statement above does not discount that possibility. So for the first statement to be true and the second to be false is possible.
+	\item It is not possible for it to be raining outside and Bob to not be carrying an umbrella, as the statement given forbids this possibility.
+	\item It is possible for it to be not raining outside and for Bob to be not carrying an umbrella. For the statement does not say anything about Bob when it is not raining outside.
+\end{itemize}
+
+For every case where the two statements are possible we let the implication operator record true, and for the one case where the two statements are not possible we let the implication operator record false.
