@@ -22,7 +22,7 @@ Todo:
 
 The important thing right now to do is to add more content.
 
-- Expand on Chapter 1, with relevant definitions and examples. Write up the recursive presentation of boolean expressions. Add proper motivation for the symbol pushing manipulation of boolean expressions in the section currently titled "Untitled."
+- Expand on Chapter 1, with relevant definitions and examples. Write up the recursive presentation of boolean expressions. Rewrite the satisfiability section. Add proper motivation for the symbol pushing manipulation of boolean expressions in the section currently titled "Untitled."
 - Expand on Chapter 2, especially about formal circuits. Rework the adders section to be an actual section and not just a big exercise to the reader.
 - Add more relevant problems to Chapter 2. Learn material to put in chapter 2 to give it substance.
 - Write a proper exposition for chapter 3. Define the Cartesian product. Define an order relation. Define what it means to be a minimal and maximal element in an ordered set.
