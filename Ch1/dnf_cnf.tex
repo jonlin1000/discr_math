@@ -1,0 +1,46 @@
+We have already seen that given any logical expression $L$ with $n$ variables we can form a truth table with precisely $2^n$ rows documenting the output of $L$ when it is evaluated at each possible input. Now we want to answer the reverse question: if we have a table $Y$ of the format of a truth table with $2^n$ rows documenting some possible output with each input of $n$ variables, then is there a logical expression involving all $n$ variables and some of the binary logical operators introduced earlier for which its truth table is exactly the table $Y$? It turns out that this answer is yes, and in this section we will see why.
+
+\subsection{The $\land$ as an indicator function}
+
+Suppose that $x_1, \dots, x_n$ are our boolean variables under consideration. Then the logical expression 
+\[L \equiv x_1 \land x_2 \land \cdots \land x_n\] evaluates to $T$ only if every variable $x_k$ is set to $T$. So $L$ can be seen as an indicator function which is true on only one possible input of logical variables. But what if I wanted an expression which evaluates to $T$ only if every variable except $x_1$ is set to $T$? This is not too much of a problem either, since the expression
+\[K \equiv (\shortsim x_1) \land x_2 \land\cdots \land x_n\] evaluates to $T$ in this case and $F$ otherwise. With these two examples it is clear how to make an ``indicator function'' which evaluates to true given one assignment of random variables and false otherwise. Simply take the expression
+%I need to think up better notation than this here..
+\[\bigwedge\limits_{x_k \rightarrow F}(\shortsim x_k) \land \bigwedge\limits_{x_j \rightarrow T}x_j\]
+where the big $\land$ represents a logical and over all the variables in question where we want the variables to be $F$ or $T$. It is clear that this expression evaluates to $T$ only one one choice of variable assignment.
+
+\subsection{The $\lor$ as a join function}
+
+So far we have demonstrated how to represent any truth table $Y$ with exactly one row of the table evaluating to $T$ as a logical expression. However, what about the rest? The remaining questions can be answered once we consider the act of conjoining equations using the $\lor$ operator.
+
+First consider the logical expression $L$ in the previous subsection. For any other logical expression $M$, consider the logical expression $L \lor M$. One thing we can say about $L \lor M$ is that it evaluates to true when every variable $x_k$ is set to $T$. We don't know that much about its evaluation at any of the other variables though. If instead we considered the logical expression $L \lor K$, where $K$ was defined in the previous section, then we see that $L \lor K$ evaluates to $T$ at exactly two assignments, precisely those that made $L$ and $K$ evaluate to $T$.
+
+Using these two concepts it is now clear how to represent any truth table $Y$ using a logical expression. First, consider for which assignments of variables $Y$ evaluates to $T$. For these assignments create indicator $\land$ expressions $L_j$ which evaluate to true only when we have that specific variable assignment. Finally, take all such expressions $L_j$ and conjoin them with $\lor$ expressions to create a final expression. 
+
+\begin{example}
+Consider the following truth table:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+$p$ & $q$ & ??\\ \hline
+$T$ & $T$ & $T$ \\ \hline
+$T$ & $F$ & $F$ \\ \hline
+$F$ & $T$ & $T$ \\ \hline
+$F$ & $F$ & $F$ \\ \hline
+\end{tabular}
+\end{table}
+
+We will create a logical expression whose truth table is the same as this truth table. Note that the this table only evaluates to true when $p \equiv T, q \equiv T$, and $p \equiv F, q \equiv T$. The associated indicator $\land$ functions for these assignments are $p \land q$ and $(\shortsim p) \land q$. Hence the final expression whose truth table is equal to the above truth table is
+\[(p \land q) \lor ((\shortsim p) \land q).\]
+\end{example}
+
+One can see that the process described above will always generate a logical expression whose truth table is equivalent to the given truth table. To see this, we observe that the expression we generate is several indicator expressions linked up with the $\lor$ operator. If any one of these is true, then the whole expression is true. Conversely, if an assignment of variables goes to false in the original truth table then it does not match any of the indicator expressions, so the whole logical expression evaluates to false. The final expression that we obtain is said to be in \textbf{disjunctive normal form}.
+
+\subsection{Using $\lor$ as an indicator function instead}
+
+Note that given $n$ boolean variables $x_1, \dots, x_n$, the expression
+\[x_1 \lor \cdots \lor x_n\] evaluates to $T$ for all variable assignments except for the assignment where every boolean variable is assigned $F$. Using similar ideas to the first subsection, we can create indicator logical expressions where every assignment evaluates to true except for one. To create a general expression we can take such indicator expressions and join them together with $\land$ taking in mind that any logical expression $L$ will satisfy 
+\[L \land F \equiv F.\]
+The resulting expression obtained is said to be in \textbf{conjunctive normal form}.

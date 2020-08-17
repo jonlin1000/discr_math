@@ -42,7 +42,7 @@ $a \land (\shortsim a) \equiv F$, $b \lor (\shortsim b) \equiv T$ & Simplificati
 \end{tabular}
 \end{table}
 
-Using logical equivalences like these, it is now possible to show that certain expressions are logically equivalent without explicitly constructing their truth tables, as the examples below show.
+Using logical equivalences like the ones in the table above, it is now possible to show that certain expressions are logically equivalent without explicitly constructing their truth tables, as the examples below show.
 
 \begin{example}
 In this example we will show that the expression
@@ -71,7 +71,28 @@ In this example we will simplify the expression
 But not now because I am lazy.
 \end{example}
 
-In general, the rules above (and rules that can be derived from them) form the basis of a system where one can do calculations with logical variables.
+In general, the rules above (and rules that can be derived from them) form the basis of a system where one can do calculations with logical variables. Now we will discuss some of these properties individually and make more comments about them.
+
+\subsection{Commutativity and Associativity}
+
+In general, a binary operator $\otimes$ is said to be commutative if $p \otimes q \equiv q \otimes p$, and associative if $(p \otimes q) \otimes r \equiv p \otimes (q \otimes r)$. As noted in the table above, the operators $\lor$ and $\land$ are associative and commutative.
+
+Commutativity and Associativity are rather strong properties to have for any binary operator. This is because not all operators are associative or commutative. For example, the implies operator is not commutative, that is,
+\[p \implies q \not\equiv q \implies p,\]
+and the NAND operator is not associative, that is
+\[p \uparrow (q \uparrow r) \not\equiv p \uparrow (q \uparrow r).\]
+One can see this by constructing the truth table for each expression respectively.
+
+\subsection{The Absorption Property}
+
+The proper way to interpret the absorption properties in the table above are that their values are independent of the variable $q$ when evaluated. To see this, consider the expression $p \lor (p \land q)$. Evaluating $q$ as $F$ we get
+\[p \lor (p \land F) \equiv p \lor F \equiv p\]
+by other properties in the table. Similarly, evaluating $q$ as $T$ we get
+\[p \lor (p \land T) \equiv p \lor p \equiv p.\]
+
+\subsection{Implication as Disjunction}
+
+The implication as disjunction property is the first example of the important idea of creating an expression given a truth table where all the variable assignments evaluate to true except for one. In this case, the implies operator evaluates $T$ unless $p \equiv T$ and $q \equiv F$. In this case, we can create an or expression $(\shortsim p) \lor q$ which we see has the same truth table as $p \implies q$. This idea of creating such an indicator function given any truth table later will be important when we study the conjunctive and disjunctive normal forms in a following section.
 
 \subsection{Exercises}
 \input{Ch1/op_cons_ex}
