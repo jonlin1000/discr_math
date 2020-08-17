@@ -38,11 +38,40 @@ $p \lor (p \land q) \equiv p \land (p \lor q) \equiv p$ & Absorption Property \\
 $a \implies b \equiv (\shortsim b) \implies (\shortsim a)$ & Contrapositive Property \\ \hline
 $a \implies b \equiv (\shortsim a) \lor b$ & Implication as Disjunction \\ \hline
 $a \odot b \equiv (a \implies b) \land (b \implies a)$ & XNOR as Conjunction \\ \hline
+$a \land (\shortsim a) \equiv F$, $b \lor (\shortsim b) \equiv T$ & Simplification Rules \\ \hline
 \end{tabular}
 \end{table}
 
-Using logical equivalences like these, it is now possible to show that certain expressions are logically equivalent without explicitly constructing their truth tables.
+Using logical equivalences like these, it is now possible to show that certain expressions are logically equivalent without explicitly constructing their truth tables, as the examples below show.
 
 \begin{example}
+In this example we will show that the expression
+\[\left((q \lor z) \land (k \lor (\shortsim k))\right) \implies \left(((\shortsim q) \land (\shortsim z)) \lor p\right)\]
+is logically equivalent to the simpler expression 
+\[(\shortsim(q \lor z)) \lor p.\]
 
+To do this we will simplify the first expression using rules stated in the table.
+
+\begin{align*}
+& \left((q \lor z) \land (k \lor (\shortsim k))\right) \implies \left(((\shortsim q) \land (\shortsim z)) \lor p\right) \\
+\equiv& \left((q \lor z) \land T\right) \implies \left(((\shortsim q) \land (\shortsim z)) \lor p\right) \\
+\equiv& (q \lor z) \implies \left(((\shortsim q) \land (\shortsim z)) \lor p\right) \\
+\equiv& (q \lor z) \implies \left(\shortsim(q \lor z) \lor p\right) \\
+\equiv& (\shortsim(q \lor z) \lor \shortsim(q \lor z)) \lor p \\
+\equiv& (\shortsim(q \lor z)) \lor p
+\end{align*}
+
+as desired.
 \end{example}
+
+\begin{example}
+In this example we will simplify the expression 
+\[(k \land l) \lor ((k \land m) \land k \land (l \lor (\shortsim m))).\]
+
+But not now because I am lazy.
+\end{example}
+
+In general, the rules above (and rules that can be derived from them) form the basis of a system where one can do calculations with logical variables.
+
+\subsection{Exercises}
+\input{Ch1/op_cons_ex}
