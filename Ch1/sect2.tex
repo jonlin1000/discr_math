@@ -1,13 +1,17 @@
-In this worksheet, we will briefly discuss a property of boolean formulas called \textbf{satisfiability}. This was briefly discussed on the last worksheet, with respect to the boolean formula $p \land (\lnot p)$.
+In this section, we will briefly discuss a property of boolean formulas called \textbf{satisfiability}. This was briefly discussed in an exercise in a previous section, when considering the boolean formula $p \land (\lnot p)$.
 
 \begin{tcolorbox}
- A boolean formula is \textbf{satisfiable} if there exists an assignment of true or false to each of its variables which makes the formula evaluate to true. Note that we only need \textit{one} such assignment of variables.
- A boolean formula is \textbf{unsatisfiable} if it isn't satisfiable. In particular, all assignments of variables will evaluate to false.
+ A boolean formula is \textbf{satisfiable} if there exists an assignment of true or false to each of its variables which makes the formula evaluate to true. Such an assignment is called a \textbf{satisfying assignment}. Note that we only need \textit{one} such assignment of variables.
+ A boolean formula is \textbf{unsatisfiable} if it isn't satisfiable. In particular, every assignment of variables will evaluate to false.
 \end{tcolorbox}
 
-For example, the formula $p \land q \land r$ is satisfiable (with satisfying assignment $p \equiv q \equiv r \equiv T$. And this is the ONLY satisfying assignment).
+For example, the formula $p \land q \land r$ is satisfiable (with satisfying assignment $p \equiv q \equiv r \equiv T$. And this is the ONLY satisfying assignment). On the other hand, the formula $(x \lor F) \land (\shortsim x)$ is not satisfiable, as no matter whether $x$ is $T$ or $F$ the expression evaluates to $F$ either way.
+
+To determine boolean satisfiability of a formula is an interesting problem which has caught the interest of computer scientists, so we will make some more heuristics related to the problem. First note that if a formula is satisfiable you only need to provide a satisfying assignment. So in order to demonstrate a formula with $n$ boolean variables is satisfiable I only need the time to evaluate a single formula with $n$ variables. However, if I wanted to show that a formula is unsatisfiable instead, I would have to evaluate $2^n$ different satisfying assignments. This number gets big really fast. In particular, when $n = 24$, even if I could evaluate one boolean formula every second it would still take me nearly a year to demonstrate a formula to be unsatisfiable.
+
+In particular, it appears that demonstrating that a formula is satisfiable or unsatisfiable is a big problem: it seems like the only strategy is to try every satisfying assignment and hope you get lucky. We have seen already with $\land$ indicator functions that there might be only one satisfying assignment. So determining at a glance whether or not a formula is satisfiable seems to be a hard problem. There are some cases where this might be easy to do however, which are detailed in the exercises.
  \begin{enumerate}
    \item \input{Ch1/2_ex/problem_1}
-   \item \input{Ch1/2_ex/problem_2}
+   \item Verify the claim in the text that if $n = 24$ a formula a second would take nearly a year to confirm unsatisfiable. Note that a year has $365$ days.
    \item \input{Ch1/2_ex/problem_3}
  \end{enumerate}

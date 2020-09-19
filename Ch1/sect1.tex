@@ -1,3 +1,7 @@
+\newcommand{\andop}{\operatorname{AND}}
+\newcommand{\orop}{\operatorname{OR}}
+\newcommand{\notop}{\operatorname{NOT}}
+
 In this section we highlight the notion of a boolean expression as a function. Using this perspective it will be clear what it means for two expressions to be logically equivalent. 
 
 \begin{tcolorbox}
@@ -16,10 +20,37 @@ Two logical expressions are called \textbf{logically equivalent} if they have th
 Equivalently, two logical expressions are logically equivalent if they have the same truth table.
 \end{tcolorbox}
 
- \begin{enumerate}
+Let's consider the special case where our logical expression is $p \otimes q$ for a binary logical operator $\otimes$. This can be seen as a function of $p$ and $q$. So we might write it using notation like
+\[O(p, q) = p \otimes q.\]
+For instance, we might consider the expression $(p \land q) \lor r$ once again. Then we can view this expression in the notation
+\[\orop(\andop(p, q), r).\]
+This notation is also useful as it makes unambiguous how expressions are evaluated. This brings us to the topic of when expressions are ambiguously defined. For example, consider the expression $p \land q \lor r$. This is ambiguously defined. It could mean the following two expressions (when given in functional notation):
+\begin{gather}
+\orop(\andop(p, q),r) \\
+\andop(p, \orop(q, r)).
+\end{gather}
+These expressions are not the same! So the expression being considered is called ``ambiguous''. This makes clear that when evaluating a logical expression it matters which part of the expression you evaluate first. However, there are some expressions where this does not matter. For example, the logical expression $p \land q \land r$ is unambiguous, because no matter if you take this expression to be $(p \land q) \land r$ or $p \land (q \land r)$, the resulting truth table remains the same. This pattern with repeated ands turns out to be unambiguous for any number of variables, but showing that this is true is somewhat difficult (and will be addressed as a topic in a later chapter).
+
+In general, logical operators follow a certain pattern which lets us recursively evaluate them. Such evaluation lets modern computers (such as the one that this book was typeset) evaluate these expressions much like a computer would. For simplification we will assume that our logical expression consists of only boolean variables (like $p$, $q$, etc.), $\land$, $\lor$, and $\shortsim$ (and as we will see in a following section this actually will not lose any generality). Then any logical expression is of one of the following forms:
+
+\begin{itemize}
+	\item Some boolean variable $p$.
+	\item $\andop(e_1, e_2)$, where $e_1$ and $e_2$ are logical expressions.
+	\item $\orop(e_1, e_2)$, where $e_1$ and $e_2$ are logical expressions.
+	\item $\notop(e)$, where $e$ is an expression.
+\end{itemize}
+
+Then we can proceed to evaluate the expressions, which are either one or two simpler logical expressions, or just a boolean variable which we evaluate to $T$ or $F$ depending on what evaluation we wanted to do.
+
+In general computers, when interpreting a logical expression like
+\[(p \land q) \lor r\]
+will convert this expression into function notation as above, and then evaluate the expression once it has been converted using the rules above.
+\begin{enumerate}
    \item \input{Ch1/1_ex/problem_1}
     \item \input{Ch1/1_ex/problem_2}
     \item \input{Ch1/1_ex/problem_3}
     \item \input{Ch1/1_ex/problem_4}
     \item \input{Ch1/1_ex/problem_5}
+    \item \input{Ch1/1_ex/problem_6}
+    \item \input{Ch1/1_ex/problem_7}
  \end{enumerate}

@@ -1,0 +1,15 @@
+In this problem we will outline how one can write a computer program that can parse and evaluate logical expressions such as $\shortsim(T \lor F) \land (F \lor T)$. For the sake of simplicity, we may assume that any logical expression only consists of the standard and ($\land$), or ($\lor$), and not ($\shortsim$) operators.
+
+\begin{enumerate}
+	\item Scan the input string and form a ``token list'' of all the individual relevant characters. For example, an expression of the form $\shortsim(T \land F) \lor F$ can be decomposed into the form  
+\begin{verbatim}
+	[~, (, T, ^, F, ), v, F]
+\end{verbatim}
+	\item Assuming that your expression is well founded, one can make what is known as a \textit{context free grammar}, which is a set of rules that recursively define your expression.
+	\item Write a set of computer functions that call each other and parse your token list, based on your recursive expression definition. In the language you are programming in you will need to make structures that are of the form $f(a, b)$, in functional notation. For example, in python, one could potentially use heterogeneous arrays, for example,
+\begin{verbatim}
+[``and'', [``or'', true, false], false]
+\end{verbatim}
+to represent these expressions. The resulting expression that comes out is known as a ``syntax tree'', and closely models the functional expressions described in the text.
+	\item Write a function that will recursively evaluate a syntax tree that has been written, as described in the chapter.
+\end{enumerate}
