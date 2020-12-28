@@ -1,0 +1,54 @@
+\subsection{Definition and Notation}
+
+Most roughly speaking, a set is a collection of objects. These objects can be numbers, people, or even other sets themselves. In general this collection need not be homogeneous (so for example, we can have a set which contains both a number and a person). For the purposes of this book, we will not even try to discuss a formal logical definition of a set (this gets very complicated). So for the rest of this book we can assume that a set is a collection of objects without any issues whatsoever.
+
+In general, when we are describing sets as a collection of specific objects, we tend to use curly braces $\{\}$ to enclose these objects while delimiting them by commas.
+
+\begin{example}
+If we wanted to describe the set containing the numbers $1$, $2$, and $3$, we would do so as $\{1, 2, 3\}$. The set $\{1, \{1, 2\}\}$ is the set which contains the number $1$, and the set $\{1, 2\}$ containing $1$ and $2$.
+
+The set $\{1, 1\}$ is the set containing the numbers $1$, \ldots and $1$? Since $1$ and $1$ are in fact the same this set is the same as $\{1\}$. We will make this example more formally clear later in the chapter.
+\end{example}
+
+In general describing sets like this gets awkward when the number of elements that the set contains gets very large. For example, it is very awkward to write out 
+\[\{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15\}\]
+to describe the set of positive integers between $1$ and $15$ inclusive. There are a couple of things we can do. For most purposes if we instead wrote this set as
+\[\{1, 2, 3, \dots, 14, 15\}\]
+where most people would understand what the set was. Another thing we can do is use a variable, such as $A$, to denote the set of positive integers between $1$ and $15$ inclusive. The best convention is to combine these two notions. We can define
+\[A = \{1, 2, 3, \dots, 14, 15\}.\]
+In this formulation $A$ is defined as the set of positive integers between $1$ and $15$ inclusive. Once we have defined $A$ in this way we can freely use just the character ``$A$'' instead of $\{1, 2, 3, \dots, 14, 15\}$, which is a good way to write concisely.
+
+In general, we can refer to any abstract set using a variable such as $A$, $B$, etc. (In general most people will use capital letters to refer to sets). 
+
+\begin{example}
+The set $\mathbb{N}$, known as the set of \textbf{natural numbers}, denotes the set of positive integers. That is,
+\[\mathbb{N} = \{1, 2, 3, 4, \dots\}.\]
+The set $\mathbb{Z}$ (german for \textit{Zahlen}) denotes the set of all integers. That is,
+\[\mathbb{Z} = \{\dots, -2, 1, 0, 1, 2, \dots\}.\]
+In some texts people include $0$ in the natural numbers. This is entirely a matter of convention and not for any very deep reason. Sometimes it is convenient to include $0$. 
+
+The empty set, denoted $\varnothing$ is the set which does not contain any elements.
+\end{example}
+
+\subsection{Common Set Operations}
+
+The first thing we describe in this section is notation to describe whether an object (usually denoted by a lowercase letter) is in a certain set. We use the $\in$ notation in order to do so. That is, we say that 
+\[x \in A\]
+if the object $x$ is in the set $A$. Alternatively if an object $x$ is not in $A$ we write $x \not\in A$ instead.
+
+\begin{example}
+Let $A = \{1, 2, 3, \dots, 14, 15\}$. Then $6 \in A$. 
+
+The empty set $\varnothing$ has the property that $x \not\in A$ for any conceivable object $x$.
+\end{example}
+
+The notion of set containment, which is an inquiry about whether any object is contained in a set, leads naturally to a general notion of inquiring whether some set is contained inside another. The definition for this is pretty natural. Roughly speaking, a set $A$ is contained in a set $B$ only if all the objects contained in $A$ are also contained in $B$. We make this notion more formal now.
+
+\begin{definition}
+Suppose $A$ and $B$ are sets. Then we say that $A \subset B$ if we have for every $x \in A$ we have $x \in B$ also.
+\end{definition}
+
+\begin{example}
+We have 
+\[\{1, 2\} \subset \{1, 2, 3\}.\]
+\end{example}
