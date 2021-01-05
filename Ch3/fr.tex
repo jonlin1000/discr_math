@@ -46,12 +46,10 @@ Here is an interesting observation: if $f: A \to B$ is a bijection, then there i
 Let $A$ be a set. Traditionally, we have lots of different notation for when we might want to \textit{compare} two objects in $A$. For example, the $=$ notation ``compares'' for equality, and the $\leq$ symbol compares two objects for magnitude. Relations generalize these comparison operators.
 
 \begin{definition}
-Let $A$ and $B$ be sets. A relation $R$ on $A$ and $B$ is a subset of $A \times B$. That is, $R$ is any subset of ordered pairs $(a, b)$ where $a \in A$ and $b \in B$.
+Let $A$ be a set. A relation $R$ on $A$ is a subset of $A \times A$. That is, $R$ is any subset of ordered pairs $(a, b)$ where $a \in A$ and $b \in A$.
 \end{definition}
 
-For example, a function $f$ is a relation.
-
-Most of the time we will consider relations in the special case where $A = B$. This is, as we might observe, the use case for the equality and inequality operators mentioned at the beginning of this section.
+This definition can used as a comparison property as we demonstrate using the following terminology. We say that an element $a \in A$ is related to an element $b \in A$ if $(a, b) \in R$. So in fact it is beneficial to just think of $R$ as the set of all possible relations.
 
 \begin{definition}
 Let $A$ be a set and $R$ be a relation on $A \times A$. A relation is
@@ -61,20 +59,7 @@ Let $A$ be a set and $R$ be a relation on $A \times A$. A relation is
     \item \textit{transitive} if for all $a, b, c \in A$, $(a, b) \in R, (b, c) \in R \implies (a, c) \in R$.
 \end{itemize}
 
-We write $aRb$ if $(a, b) \in R$.
+Usually, given a relation $R$, we will write $aRb$ if $(a, b) \in R$. This will save use space and ink.
 
-A relation is called an \textbf{equivalence relation} if it is reflexive, symmetric, and transitive.
 \end{definition}
-
-\section{Exercises}
-
- \begin{enumerate}
-   \item \input{Ch3/2_ex/problem_1}
-   \item \input{Ch3/2_ex/problem_2}
-   \item \input{Ch3/2_ex/problem_3}
-   \item \input{Ch3/2_ex/problem_4}
-   \item \input{Ch3/2_ex/problem_5}
-   \item \input{Ch3/2_ex/problem_6}
-   % add more problem files here
- \end{enumerate}
 

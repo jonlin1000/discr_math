@@ -30,7 +30,7 @@ In some texts people include $0$ in the natural numbers. This is entirely a matt
 The empty set, denoted $\varnothing$ is the set which does not contain any elements.
 \end{example}
 
-\subsection{Common Set Operations}
+\subsection{Set Inclusion and Set Equality}
 
 The first thing we describe in this section is notation to describe whether an object (usually denoted by a lowercase letter) is in a certain set. We use the $\in$ notation in order to do so. That is, we say that 
 \[x \in A\]
@@ -52,3 +52,30 @@ Suppose $A$ and $B$ are sets. Then we say that $A \subset B$ if we have for ever
 We have 
 \[\{1, 2\} \subset \{1, 2, 3\}.\]
 \end{example}
+
+A closely related concept to set inclusion is set equality. Below we define set equality. Roughly two sets are equal if they contain the same elements. We will define set equality then using the subset definition.
+\begin{definition}
+Suppose $A$ and $B$ are sets. Then $A = B$ if $A \subset B$ and $B \subset A$.
+\end{definition}
+
+This definition roughly encodes the notion of set equality. Since in the definition of subset, $A \subset B$ if all the elements of $A$ were in $B$. So two sets $A$ and $B$ are equal if all the elements of $A$ are in $B$, and all the elements of $B$ are in $A$. This raises some subtle, but not particularly deep observations.
+
+\begin{example}
+We claim that 
+\[\{1, 2, 3, 3\} = \{1, 2, 3\}.\]
+
+This can be easily verified using the definition of set equality. However it is true that both sets do not ``look'' the same. 
+\end{example}
+
+This subtlety with multiple elements in a set shows that we only need to consider sets where each element of the set is unique in that set, since such a set will always be equal to one with the same elements but maybe some of them duplicated. %%probably a terrible explanation.
+
+\subsection{Common Set Operations}
+
+In this section we describe common set operations used to manipulate sets and create new sets. First we will explain why this is useful. In practice, when one is using sets, in general one considers sets with certain properties. That is one would like to consider perhaps certain objects with a certain property. In practice one would define these sets using \textbf{set builder notation}. The idea of defining such a set $S$ is encapsulated in the notation below.
+
+\[S = \{\text{all the objects $x$ of some type} \colon \text{$x$ has some special property}\}.\]
+Let's break down this notation further. With this notation, it is accepted that $S$ is defined to be the set of all objects $x$ such that $x$ has a special property. For example, the set 
+\[S = \{x \in \mathbb{Z} \colon |x| \leq 5\}\]
+is the set of integers with absolute value less than or equal to $5$. In other words,
+\[S = \{-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5\}.\]
+In general set builder notation is very useful to create sets of objects with certain properties.
