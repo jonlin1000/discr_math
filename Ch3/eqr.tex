@@ -74,4 +74,72 @@ One can use the word ``partition'' either as a noun indicating a set partition, 
 We can partition the set $S = \{1, 2, 3, 4, 5, 6\}$ into the even elements $E = \{2, 4, 6\}$ and odd elements $O = \{1, 3, 5\}$. One can easily see that $E$ and $O$ are disjoint and $E \cup O = S$.
 \end{example}
 
-Now we will describe how given an equivalence relation we can partition a set in a natural way. The idea is to include elements in the same subset if they are related to each other. A typical example is the previous example. If $\sim$ represents the equivalence relation $a \sim b$ if $a - b$ is even, then all the elements in $E$ are equivalent and all the elements in $O$ are equivalent. 
+Now we will describe how given an equivalence relation we can partition a set in a natural way. The idea is to include elements in the same subset if they are related to each other. A typical example is the previous example. If $\sim$ represents the equivalence relation $a \sim b$ if $a - b$ is even, then all the elements in $E$ are equivalent and all the elements in $O$ are equivalent. To generalize this notion to any equivalence relation, we will introduce the notion of an \textit{equivalence class}.
+
+\begin{definition}
+Suppose that $S$ is a set and $\sim$ is an equivalence relation on $S$. Let $a \in S$ be any element. We define 
+\[C_a = \{s \in S \mid s \sim a\}.\]
+In other words, $C_a$ is the subset of $S$ whose elements are all equivalent to $a$.
+\end{definition}
+
+\begin{example}\ref{even_odd2_eqr}
+In example \ref{even_odd_eqr} we defined an equivalence relation on $\mathbb{Z}$ with $a \sim b$ if $a - b$ was an even number. For this example we consider what $C_0$ is. If $a \sim 0$, then $a - 0 = a$ is an even number, and conversely. So $C_0 = \{\dots,-4, -2, 0, 2, 4, \dots,\}$. Similarly, we see that $C_1 = \{\dots,-3, -1, 1, 3, \dots\}$. We might observe the following:
+\begin{itemize}
+	\item $C_0$ and $C_1$ are disjoint. Their union is all of $\mathbb{Z}$, so $C_0$ and $C_1$ form a partition of the integers.
+	\item We might notice that $C_4$, $C_2$, and $C_0$ are all the same sets. Indeed, we can convince ourselves that in this example, no matter what element $i$ we take from $C_0$, it will be the case that $C_i = C_0$. So an equivalence class seems to not depend on the \textit{choice of representative}.
+\end{itemize}
+\end{example}
+
+Let's further explain what we mean by a \textit{choice of representative}. In defining an equivalence class $C_a$, we make a choice of element $a$. But as the above example demonstrates, it seems like we can choose any element from an equivalence class and the resulting equivalence class will turn out to be same. In fact, this happens for any general equivalence relation and we will explain why below. The reasoning follows from a particular claim:
+
+\begin{proposition}
+Let $S$ be a set, and let $\sim$ be an equivalence relation on $S$. For any $a, b \in S$, two possibilities happen.
+\begin{enumerate}
+	\item $C_a \cap C_b = \varnothing$, or the two equivalence classes are disjoint.
+	\item $C_a = C_b$, ie, the two equivalence classes are the same. 
+\end{enumerate}
+\end{proposition}
+
+To show that this claim is true, we examine the two subsets $C_a$ and $C_b$. Maybe it is the case that $C_a \cap C_b = \varnothing$. Then this possibility has happened and there is nothing left to show. The other possibility is that $C_a \cap C_b \neq \varnothing$. Then to show that the claim is true we need to show that in fact $C_a = C_b$.
+
+First we show that $a \sim b$. Since $C_a \cap C_b \neq \varnothing$ there is an element $c \in C_a \cap C_b$. By definition of set intersection, $c \in C_a$, and also $c \in C_b$. By definition of $C_a$ and $C_b$, we have that 
+\[c \sim a, c \sim b.\]
+By symmetry of the equivalence relation, $a \sim c$, and hence by transitivity we have $a \sim b$.
+
+Now that we know that $a \sim b$ it is pretty easy to show that $C_a \subset C_b$ and vice versa. To show that $C_a \subset C_b$, suppose $d$ is any element of $C_a$. By definition, $d \sim a$. But since $a \sim b$, by transitivity, $d \sim b$. So $d \in C_b$. It follows that $d \in C_b$. So $C_a \subset C_b$ as desired. To show $C_b \subset C_a$ is the same reasoning except we use the fact that $b \sim a$ (which is true by the symmetry property, since $a \sim b$).
+
+%%%still need to explain how this gives you a partition of S
+We are almost done. Now we just need to answer the following question: how does this claim help us generate a partition of the set $S$? To answer this partially we might describe how to partition $S$ using an iterative process:
+\begin{enumerate}
+	\item Choose any element $a \in S$. We take $C_a$.
+	\item Choose any element $b \in S$, $b \not\in C_a$. This ensures that $C_a \cap C_b = \varnothing$ (why?). 
+	\item Choose any element $c \in S$, $c \not\in C_a \cup C_b$. This ensures that $C_c$ is disjoint from the first two sets. 
+	\item Keep going like this until $S$ is exhausted of elements.
+\end{enumerate}
+In more informal terms, we think about $S$ as a big box of elements, and we keep taking out elements of $S$ in bags (which are the equivalence classes), until $S$ is empty. The reason why this is not quite complete is that of course $S$ may be infinite, and the equivalence classes finite, so of course one might never reach a complete partition of $S$ by doing this. But the idea is still the same.
+
+To partition any general set $S$ with an equivalence relation $\sim$ we first observe that the following identity holds:
+\[S = \bigcup_{a \in S}C_a.\]
+To see why this is true, we first observe that since all the $C_a \subset S$, then the backwards inclusion is true, ie $S \supset \bigcup_{a \in S}C_a$. For the forwards inclusion we observe that for any $c \in S$, $c \in C_c$ because $c \sim c$ by reflexivity. It follows that the forward inclusion holds, and hence the set equality holds.
+
+Now we are tempted to say that the collection $\{C_a\}_{a \in S}$ is the required partition, because by the claim we showed above, the $C_a$ are either the same or disjoint. However, since some of the $C_a$ may be the same this is not generally a partition yet. What we do now is consider all collections $C_a, C_b, \dots$ which are the same, and discard all but one of them. After this process is completed we have our required partition.
+
+\begin{example}\label{apt2_eqr}
+In Example \ref{apt1_eqr}, we showed that the equivalence relation $p \sim q$ on two apartment building residents if $p$ and $q$ live at the same apartment number was an equivalence relation. The equivalence class $C_p$ consists of the set of all people who are roommates with $p$. In general, by our reasoning above, the collection of distinct and disjoint equivalence classes partitions the set of apartment residents $A$. Ignoring the representative of any equivalence class, we see that any subset used in our partition is just the collection of all the people living in a particular apartment number. 
+
+If we are to view this equivalence relation as a classifier, then roughly speaking this equivalence relation classifies people based on what apartment number they reside at. 
+\end{example}
+
+\begin{example}\label{mod2_classes_eqr}
+In Example \ref{even_odd2_eqr} we divided the integers $\mathbb{Z}$ based on whether they were odd or even. So in terms of a classifier this equivalence relation classifies integers based on whether or not they are even or odd.
+\end{example}
+
+\subsubsection{Exercises}
+
+\begin{enumerate}
+	\item \input{Ch3/2_ex/problem_1}
+	\item \input{Ch3/2_ex/problem_2}
+	\item Suppose Lily presents to you the following argument that a relation having the transitive and symmetric property is in fact reflexive: they explain that since $a \sim b$, then by symmetry, $b \sim a$. But then by transitivity, $a \sim a$. So the relation must be reflexive. Is Lily right? If not, what is wrong with their argument? 
+	\item \input{Ch3/2_ex/problem_5}
+	\item \input{Ch3/2_ex/problem_6}
+\end{enumerate}

@@ -1,15 +1,12 @@
-(Equivalence relations as surjective functions) Let $X$ be a set, and let $\sim~\subset X \times X$ be an equivalence relation. Given any $a \in X$, define
-\[X_a = \{b \in X \mid a\sim  b\}\]
-We call this the equivalence class of $a$.
+(Equivalence relations as surjective functions) Let $X$ be a set, and let $\sim~\subset X \times X$ be an equivalence relation.
 
 \begin{enumerate}
-    \item Given any $a, b \in X$, show that either $X_a \cap X_b = \varnothing$ or $X_a = X_b$. So distinct equivalence classes are disjoint.
-    \item Let $C = \{X_a \mid a \in A\}$. That is, $C$ is the set of all the equivalence classes (which are sets, specifically subsets of $X$). Consider the function $f:X \to C$ given by $f(a) = X_a$. First, justify that $f$ is actually a function (that is, it satisfies all the properties that functions satisfy). Then prove that $f$ is a surjective function (this is pretty easy).
+    \item Let $C = \{C_a \mid a \in A\}$. That is, $C$ is the set of all the equivalence classes (which are sets, specifically subsets of $X$). Consider the function $f:X \to C$ given by $f(a) = X_a$. First, justify that $f$ is actually a function (that is, it satisfies all the properties that functions satisfy). Then prove that $f$ is a surjective (this is pretty easy).
     \item Now consider any surjective function
     \[f:X \to C,\] where $C$ is any set. Consider the sets 
     \[M_z = \{x \in X \mid f(x) = z\}.\]
     Show that the relation $\sim~\subset X \times X$ defined by $x \sim y$ if and only if $f(x) = f(y)$ is an equivalence relation. Show that the equivalence classes of $\sim$ are precisely the sets $M_z$ for $z \in C$.
-    \item Let $D$ be the set of equivalence classes of $\sim$ in the previous part. Now define $\tilde{f}: D \to C$ by $\tilde{f}(X_a) = f(a)$.
+    \item Let $D$ be the set of equivalence classes of $\sim$ in the previous part. Now define $\tilde{f}: D \to C$ by $\tilde{f}(C_a) = f(a)$.
     Show that $\tilde{f}$ with this rule defines a valid function and that $\tilde{f}$ is in fact bijective.
 \end{enumerate}
-Remark: for the more mathematically inclined the reason why this construction works boils down to fact that the inverse image of a function is well behaved under set union and intersection; see if you can figure out why this fact basically makes the problem work.
+% the reason why this construction works boils down to fact that the inverse image of a function is well behaved under set union and intersection; see if you can figure out why this fact basically makes the problem work.
