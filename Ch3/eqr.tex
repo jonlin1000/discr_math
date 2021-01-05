@@ -14,7 +14,12 @@ Let $A$ be a set. An equivalence relation $\sim \subset A \times A$ is a relatio
 	\item If $a \sim b$ and $b \sim c$, then $a \sim c$. 
 \end{enumerate}
 
-
+Moreover, these conditions have specific names.
+\begin{enumerate}
+	\item Any relation satisfying the first condition is called \textit{reflexive}.
+	\item Any relation satisfying the second condition is called \textit{symmetric}.
+	\item Any relation satisfying the third condition is called \textit{transitive}.
+\end{enumerate}
 \end{definition}
 
 Let us unpack the criterion for an equivalence relation $\sim$ on $A$. The first condition simply states that every element in $a$ is related to itself. The second condition models the condition that if $a$ is related to $b$, then $b$ should be related to $a$ as well. The third condition asserts the \textit{transitivity} of the relation $\sim$. That is, if $a$ is related to $b$, and $b$ is related to $c$, then $a$ should be related to $c$; that is, we can chain relations to get other relations.
@@ -27,8 +32,46 @@ The notion of object equality is an equivalence relation. More formally, the $=$
 	\item If $a = b$ and $b = c$, then $a = c$ as well.
 \end{enumerate}
 \end{example}
-The verifications we made above are true because they are in fact properties of \textit{equality} itself. We remark that in fact the definition of an equivalence relation was formed to encode more general notions of equality. We will describe more examples of equivalence relations later in the section and explore for each relation in what way the elements are the same. 
+The verifications we made above are true because they are in fact properties of \textit{equality} itself. In fact, the definition of an equivalence relation was formed to encode more general notions of equality. We will describe more examples of equivalence relations later in the section and explore for each relation in what way the elements are the same. 
+
+\begin{example}\label{apt1_eqr}
+Suppose we have an apartment building $A$. Let $S$ be the set of all residents in $A$. We will define an equivalence relation $\sim$ on $S$ as follows. For $s, t \in S$ (ie, any two residents of the building), we say that $s \sim t$ if $s$ and $t$ live at the same apartment number. We can verify that this is an equivalence relation by verifying the three properties an equivalence relation needs to satisfy:
+\begin{enumerate}
+	\item For any $s \in S$, $s \sim s$ by default because they are the same person and hence they live at the same apartment number.
+	\item If $s$ and $t$ live in the same apartment number this is the same as saying that $t$ and $s$ live at the same apartment number. So if $s \sim t$, then $t \sim s$.
+	\item If $s \sim t$ and $t \sim r$, then $s$, $t$, and $r$ all live at the same apartment number. It follows that $s \sim r$ as desired.
+\end{enumerate}
+\end{example}
+
+\begin{example}\label{even_odd_eqr}
+For the set $\mathbb{Z}$ define a relation $\sim$ as follows. We have $a \sim b$ if $a - b$ is even. We can verify that this relation is an equivalence relation below:
+\begin{enumerate}
+	\item $a-a = 0$, which is even (it is $2 \times 0$), so $a \sim a$.
+	\item If $a \sim b$, then $a - b$ is even. It follows that $b - a = -(a-b)$ is even as well. For if $a - b = 2m$ for some integer $m$ then $b - a = -(a-b) = -2m = 2(-m)$ can be seen to be an even integer. So $b \sim a$.
+	\item If $a \sim b$ and $b \sim c$, then $a - b$ and $b - c$ are both even. So $a - b = 2m$ and $b - c = 2n$ for some integers $m$ and $n$. It can be seen that their sum must be even as well. But we have
+	\[a - c = (a - b) + (b - c) = 2m + 2n = 2(m + n)\]
+	so it follows that $a - c$ is even as well. Hence $a \sim c$ and the relation is transitive.
+\end{enumerate}
+
+So it follows that $\sim$ is an equivalence relation. We can verify that $a \sim b$ only if $a$ and $b$ are both odd or both even. So in this case, $\sim$ defines whether or not items are the same based on whether or not they have the same remainder when integer dividing by $2$.
+
+We will also show that a similar looking relation is not an equivalence relation. Suppose instead we define $a \sim b$ if $a \sim b$ is odd. One can check that this relation is symmetric, but it is neither reflexive nor transitive.
+\end{example}
+
+\begin{example}\label{modm_eqr}
+We can generalize the previous example as follows. For the set $\mathbb{Z}$ we can define a relation $\sim$ with the property that $a \sim b$ if $b - a$ is divisible by a positive integer $m$ (where $m$ is given in advance). One can check as above that this forms an equivalence relation.
+\end{example}
+
+At the beginning of this (sub)section we described two different ways of looking at an equivalence relation. We have made the second way (an equivalence relation as determining whether two elements are the ``same'' in some sense) above. We now make the first notion (an equivalence relation as a classifier) precise.
+
+\begin{definition}
+Suppose $S$ is a set. Then a partition $P$ of $S$ is a collection of subsets $P_n$ (possibly infinite) where any two $P_i$ and $P_j$ are mutually disjoint and $\bigcup_{j = 1}^nP_j = S$. 
+\end{definition}
+
+One can use the word ``partition'' either as a noun indicating a set partition, as defined above, or as a verb describing the action of dividing a set into disjoint subsets. In the example below ``partition'' is used in its verb form.
 
 \begin{example}
-For the set $\mathbb{Z}$ define a relation $\sim$ as follows. We have $a \sim b$ if $a - b$ is even. We can verify that $a \sim b$ only if $a$ and $b$ are both odd or both even. So in this case, $\sim$ defines whether or not items are the same based on whether or not they have the same remainder when integer dividing by $2$.
+We can partition the set $S = \{1, 2, 3, 4, 5, 6\}$ into the even elements $E = \{2, 4, 6\}$ and odd elements $O = \{1, 3, 5\}$. One can easily see that $E$ and $O$ are disjoint and $E \cup O = S$.
 \end{example}
+
+Now we will describe how given an equivalence relation we can partition a set in a natural way. The idea is to include elements in the same subset if they are related to each other. A typical example is the previous example. If $\sim$ represents the equivalence relation $a \sim b$ if $a - b$ is even, then all the elements in $E$ are equivalent and all the elements in $O$ are equivalent. 
