@@ -1,0 +1,37 @@
+\subsection{Set Difference and Set Complement}
+
+So far, our notation for describing objects that live in sets has been very \textit{inclusive}. For example, set intersection describes objects that are contained in many sets all at once, and set union describes objects that are contained in at least one of many sets. Now we develop notation for descriptions which are \textit{exclusive}. More specifically, we will develop notation to describe objects that are \textit{not} contained in some specified set. To begin with we will define the relative complement of two sets.
+
+\begin{definition}
+Let $A$ and $B$ be sets. The \textbf{relative complement} of $A$ with respect to $B$ is denoted $B \setminus A$ and is defined as the set
+\[B \setminus A = \{x \in B \colon x \not\in A\}.\]
+
+The \textbf{divided difference} of $A$ and $B$ is denoted $A \Delta B$, and is defined by
+\[A \Delta B = (A \setminus B) \cup (B \setminus A).\]
+\end{definition} 
+
+Note first that $A \setminus B$ is not generally equal to $B \setminus A$. For example, consider the sets $\{1, 2, 3\}$ and $\{2, 3, 4\}$. Then we have
+\begin{gather*}
+	\{1,2,3\} \setminus \{2, 3, 4\} = \{1\} \\
+	\{2, 3, 4\} \setminus\{1,2,3\} = \{4\}.
+\end{gather*}
+
+The relative complement is good notation to indicate whether or not some element does not lie in a certain set. Now suppose that we are working within a global set $U$. For example, $U$ can be the set of natural numbers, integers, or some other ``global'' set. We will define the global complement now.
+
+\begin{definition}
+Let $U$ be some set fixed in advance and let $A \subset U$. The global complement of $A$ (with respect to $U$) is the set $U \setminus A$.
+\end{definition}
+
+\begin{example}
+Suppose I want to describe a set of elements for which each element $x$ is in $B$ but not in $A_1$ or $A_2$. We can describe this as follows. Since $x$ is not in $A_1$ or $A_2$, we know that $x \not\in A_1 \cup A_2$. So the set we are describing is just the set $B \setminus (A_1 \cup A_2)$.
+
+Alternatively, we could employ the following derivation using set builder notation:
+\begin{align*}
+	\{x \colon (x \in B) \land (x \not\in A_1) \land (x \not\in A_2)\} &= \{x \in B \colon \lnot((x \in A_1) \lor (x \in A_2))\} \\ 
+	&= \{x \in B \colon \lnot(x \in A_1 \cup A_2)\} \\
+	&= \{x \in B \colon (x \not\in A_1 \cup A_2)\} \\
+	&= B \setminus (A_1 \cup A_2).
+\end{align*}
+
+We will make this method of manipulating clauses in set builder notation more clear and general in the next section.
+\end{example}

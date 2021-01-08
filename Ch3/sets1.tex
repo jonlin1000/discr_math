@@ -71,7 +71,7 @@ This subtlety with multiple elements in a set shows that we only need to conside
 
 \subsection{Common Set Operations}
 
-In this section we describe common set operations used to manipulate sets and create new sets. First we will explain why this is useful. In practice, when one is using sets, in general one considers sets with certain properties. That is one would like to consider perhaps certain objects with a certain property. In practice one would define these sets using \textbf{set builder notation}. The idea of defining such a set $S$ is encapsulated in the notation below.
+In this section we describe common set operations and notations used to manipulate sets and create new sets. First we will explain why this is useful. In practice, when one is using sets, in general one considers sets with certain properties. That is one would like to consider perhaps certain objects with a certain property. In practice one would define these sets using \textbf{set builder notation}. The idea of defining such a set $S$ is encapsulated in the notation below.
 
 \[S = \{\text{all the objects $x$ of some type} \colon \text{$x$ has some special property}\}.\]
 Let's break down this notation further. With this notation, it is accepted that $S$ is defined to be the set of all objects $x$ such that $x$ has a special property. For example, the set 
@@ -79,3 +79,97 @@ Let's break down this notation further. With this notation, it is accepted that 
 is the set of integers with absolute value less than or equal to $5$. In other words,
 \[S = \{-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5\}.\]
 In general set builder notation is very useful to create sets of objects with certain properties.
+
+Not only do we want to describe objects with a certain property, but much of the time we would like to describe objects with more than one property or objects with at least one of the following few properties. These concepts are encapsulated by set intersection and set union, respectively.
+
+\subsubsection{Set Intersection}
+
+Suppose $E$ is the set of even numbers and $T$ is the set of multiples of $3$. Then if a number $n$ is divisible by $6$, then it is both an even number and a multiple of $3$. So $n$ is in $E$ and $T$ at the same time. Using notation already presented, one might say that $n \in E$ and $n \in T$. However, this is not the most concise way to write this. In order to express that an object is in two sets and the same time we introduce the notion of \textit{set intersection}.
+
+\begin{definition}
+Let $A$ and $B$ be sets. We define $A \cap B$ (read as ``$A$ intersect $B$'') to be the objects $n$ which are contained in both $A$ and $B$. A little more formally,
+\[A \cap B = \{n \colon (n \in A) \land (n \in B)\}.\]
+\end{definition}
+
+In the example described above, the most concise way to write that $n$ is both even and a multiple of three would be $n \in E \cap T$.
+
+\begin{definition}
+Let $A$ and $B$ be sets. We say that $A$ and $B$ are \textbf{disjoint} if $A \cap B = \varnothing$. That is, $A$ and $B$ have no elements in common.
+\end{definition}
+
+\subsubsection{Set Union}
+%%the first example I thought up was that of boys and girls in a schoolyard. But this might be politically incorrect in more than one way. 
+Similarly to how we would like to describe objects with multiple properties at the same time, in many cases it is useful to describe objects which have one of many properties, but not necessarily all of them at the same time.
+Consider, for example, the set of all candy $C$ that some person has acquired one Halloween night. Any piece of candy satisfies the following condition. Either it contains chocolate or it does not. These are clearly mutually exclusive possibilities. Let $H$ denote the set of candies in the Halloween loot which contain chocolate, and let $J$ denote the set of candies in the Halloween loot that do not contain chocolate. Then we may observe the following.
+\begin{itemize}
+	\item Every candy $c$ in the Halloween loot is either in $H$ or in $J$, since a piece of candy in the loot either does or does not contain chocolate.
+	\item $H \cap J = \varnothing$, because a piece of candy cannot both contain and not contain chocolate at the same time\footnote{Here we are assuming something known as the \textbf{law of the excluded middle}.}
+\end{itemize}
+
+As with set intersection, we would like some notation that would indicate that $c$, a piece of candy, is either in $H$ or in $J$. This is done using the set union notation, as defined below.
+\begin{definition}
+Let $A$ and $B$ be sets. We define $A \cup B$ (read as ``$A$ union $B$'') to be the objects $n$ which are contained in at least one of $A$ or $B$. A little more formally,
+\[A \cup B = \{n \colon (n \in A) \lor (n \in B)\}.\]
+\end{definition}
+For instance, in the example above, we could write $c \in H \cup J$ to indicate that each piece of candy is in either $H$ or in $J$. This is not the most general use of set union because as we observed, the sets $H$ and $J$ were disjoint. As a simple example, one can verify that 
+\[\{1, 2, 3\} \cup \{2, 3, 4\} = \{1, 2, 3, 4\}.\]
+
+\begin{definition}
+Suppose that $S$ is a set and $A$ and $B$ are subsets of $S$. We say that $A$ and $B$ cover $S$ if 
+\[A \cup B = S.\]
+\end{definition}
+
+\subsubsection{Union and Intersection of More Than Two Sets}
+
+In the above two parts we have defined set intersection and set union for two sets $A$ and $B$. As stated before, these notations are useful for describing objects that have many properties or at least one out of many given properties respectively. However, with our definitions we can only do this when ``many'' equals $2$. So now we define union and intersection for more than two sets. First, we define set union and intersection for arbitrarily many finite sets, and then for an arbitrary index set (which we will define later).
+
+\begin{definition}
+Suppose $n \geq 2$, and $A_1, A_2, \dots, A_n$ are sets. We define their intersection and union to be
+\[A_1 \cap A_2 \cap \cdots \cap A_n = \{x \colon (x \in A_1) \land (x \in A_2) \land \cdots \land (x \in A_n)\}\]
+and
+\[A_1 \cup A_2 \cup \cdots \cup A_n = \{x \colon (x \in A_1) \lor (x \in A_2) \lor \cdots \lor (x \in A_n)\}\]
+
+We can also write these intersections and unions in big union and intersection notation, which looks like this:
+\[\bigcup_{i = 1}^nA_i = A_1 \cup A_2 \cup \cdots \cup A_n\]
+and 
+\[\bigcap_{i = 1}^nA_i = A_1 \cap A_2 \cap \cdots \cap A_n.\]
+\end{definition}
+
+One might observe that in the case of chapter 1\footnote{this is temporary to indicate that i have not mentioned this issue in chapter 1 at all} that the definition of a union (resp. intersection) of more than two sets involves a logical formula that is not fully well defined namely a large connection of logical ands (resp. logical ors). As we have stated then this will not be a problem due to the associativity of the logical operators $\land$ and $\lor$. We will resolve this problem fully in Chapter 4. %note please label the chapters later.
+
+Now we discuss the union of sets over an arbitrary index. Let $I$ be a set, possibly infinite. Suppose we have a collection of sets $A_i$ for each $i \in I$. In many cases we would like to discuss the union (or perhaps intersection) of these sets, denoted by
+\[\bigcup_{i \in I}A_i, \bigcap_{i \in I}A_i\]
+
+We will define these unions and intersections similarly to how we did it for finitely many sets.
+\begin{definition}
+Let $I$ be any set, and suppose that $A_i$ are sets defined for each $i \in I$. We will define the union and intersection of these sets as follows: We define
+\[\bigcup_{i \in I}A_i = \{x \colon \text{$x \in A_i$ for some $i \in I$}\}\]
+and
+\[\bigcap_{i \in I}A_i = \{x \colon \text{$x \in A_i$ for all $i \in I$}\}.\]
+\end{definition}
+
+\begin{example}
+Consider the set $I = \mathbb{N}$. We will define the set $A_n$ for each $n \in \mathbb{N}$ to be the set of positive multiples of $n$. That is,
+\[A_n = \{n, 2n, 3n, 4n, \dots\}.\]
+First we will determine 
+\[\bigcup_{n \in I}A_n.\] We claim this is just $\mathbb{N}$. Indeed, observe that since $A_n \subset \mathbb{N}$ for all $n \in I$, their union is a subset of $\mathbb{N}$ as well. For the other direction, we only need to observe that for each $n \in \mathbb{N}$, $n \in A_n$. So clearly by the definition of subset we have the other inclusion. %maybe explain more.
+
+Now we will determine
+\[\bigcap_{n \in I}A_n.\] We claim that this set is empty. Indeed, again we observe since $A_n$ are subsets of $\mathbb{N}$ we observe that their intersection is as well. Now we just need to show that no element of $\mathbb{N}$ is in the intersection (hence the intersection is empty). To see this, we only need to observe that any $n \in \mathbb{N}$ is not contained in $A_{n + 1}$. Hence no $k \in \mathbb{N}$ can be contained in all of the $A_n$ at the same time (which is the requirement for $k$ to be in the intersection.
+\end{example}
+
+As a remark, the indexing set $I = \mathbb{N}$ is so common that many people usually use the following notation for a union indexed by the natural numbers. In this case people usually write
+\[\bigcup_{i = 1}^\infty A_i\] instead of 
+\[\bigcup_{i \in \mathbb{N}}A_i.\]
+
+
+\begin{example}
+Consider again the set $I = \mathbb{N}$. We will define a collection of sets $A_n$ for $n \in I$ which have the following properties:
+\begin{itemize}
+	\item \[\bigcup_{i = 1}^{\infty}A_n = \mathbb{N}\]
+	\item $A_i \cap A_j = \varnothing$ when $i \neq j$,
+	\item $A_i$ are infinite sets for each $I$. 
+\end{itemize}
+
+I will work out this example later because I am lazy.
+\end{example}
