@@ -35,3 +35,37 @@ Alternatively, we could employ the following derivation using set builder notati
 
 We will make this method of manipulating clauses in set builder notation more clear and general in the next section.
 \end{example}
+
+\subsection{Set Identities and Manipulation}
+
+In this section we will indicate several set identities (relationships involving sets and various operations on sets) and in general we will develop the general technique for deriving and demonstrating that these identities are true. As in the previous section, we demonstrated various manipulations of set builder notation to abstract sets to other sets using logical identities and notation. We outline the general method of set builder notation manipulation below:
+
+\begin{enumerate}
+	\item Recall that set builder notation has the following form:
+	\[S = \{\text{$x$} \colon \text{$x$ has some property}\}.\]
+	In general, the property that $x$ has can be described in the form of a logical statement. In this sense this means that we can manipulate this statement using the rules of propositional logic.
+	\item Suppose now we have some notation of the following form:
+	\[S = \{x \in B \colon \text{$x$ satisfies some properties}\}.\]
+	This set is the same as the set
+	\[\{x \colon (x \in B) \land \text{$x$ satisfies some properties}\}.\]
+	In this way, the set declaration on the left hand side can be seen as another property. 
+\end{enumerate}
+
+We illustrate this method by showing several important set theoretic identities.
+
+\begin{proposition}
+For any three sets $A$, $B$, and $C$,
+\begin{gather*}
+	A \cap (B \cup C) = (A \cap B) \cup (A \cap C) \\
+	A \cup (B \cap C) = (A \cup B) \cap (A \cup C)
+\end{gather*}
+\end{proposition}
+To show, for example, the first claim is true, we provide the following chain of equalities.
+\begin{align*}
+	A \cap (B \cup C) &= \{x \colon (x \in A) \land (x \in B \cup C)\} \\
+	&= \{x \colon (x \in A) \land ((x \in B) \lor (x \in C))\} \\
+	&= \{x \colon ((x \in A) \land (x \in B)) \lor ((x \in A) \lor (x \in C))\} \\
+	&= \{x \colon (x \in A \cap B) \lor (x \in A \cap C)\} \\
+	&= (A \cap B) \cup (A \cap C)
+\end{align*}
+The set of equalities for the second claim is almost the same. In that case we can apply another law of distributivity to reach the conclusion.
