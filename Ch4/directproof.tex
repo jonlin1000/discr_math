@@ -1,0 +1,27 @@
+Here are two examples of direct proofs.
+\begin{proposition}
+$5$ is an odd number.
+\end{proposition}
+\begin{proof}
+Since we can write $5 = 2(2) + 1$, it follows that $5$ is odd.
+\end{proof}
+
+\begin{proposition}
+The sum of two odd numbers is even.
+\end{proposition}
+\begin{proof}
+Suppose $m$ and $n$ are odd numbers. Then we may write
+\begin{gather*}
+m = 2k + 1 \\
+n = 2j + 1
+\end{gather*}
+where $k$ and $j$ are integers. Then
+\[m + n = 2k + 2j + 2 = 2(k + j + 1)\]
+is even, since $k + j + 1$ is an integer.
+\end{proof}
+
+The claims were kept simple to better indicate their structure. Notice that the first claim has the ``object has property'' form. The second claim has the ``hypothesis implies conclusion'' form, once we rewrite the claim in the following form:
+\begin{proposition}
+If $m$ and $n$ are odd numbers, then their sum $m + n$ is an even number.
+\end{proposition}
+Notice how the proof of this claim takes two unspecified odd numbers and verifies that their sum is even. This is the general strategy for showing that a combination of objects with various properties will satisfy some conclusion. 
