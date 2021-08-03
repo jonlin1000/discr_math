@@ -6,12 +6,23 @@ Here is the Principle of Strong Induction:
 Suppose $P(n)$ is a proposition, and that the following statements hold:
 \begin{itemize}
     \item $P(0)$ is true,
-    \item If $P(i)$ is true for all $i \leq n$, then we can prove that $P(n + 1)$ is true.
+    \item If $P(i)$ is true for all $0 \leq i \leq n$, then we can prove that $P(n + 1)$ is true.
 \end{itemize}
 Then $P(n)$ holds for all $n \in \mathbb{N}$.
 \end{theorem}
+\begin{proof}
+In fact, this theorem actually directly follows from the Principle of Weak Induction. To see this clearly, define the proposition $Q(n)$ to be equivalent to the claim that $P(i)$ is true for $0 \leq i \leq n$. Then by the hypotheses:
+\begin{itemize}
+	\item $Q(0)$ is true,
+	\item If $Q(n)$ is true, then $P(n + 1)$ is true. This essentially means that if $Q(n)$ is true, then $P(i)$ is true for all $0 \leq i \leq n + 1$, implying that $Q(n + 1)$ is true.
+\end{itemize}
 
-This is very powerful.
+So by the Principle of Weak Induction $Q(n)$ is true for all natural numbers $n$, which implies that $P(n)$ is true for all natural numbers $n$ as well.
+\end{proof}
+
+%note: define inductive hypothesis in weak_ind.tex
+
+The Principle of Strong Induction is seemingly ``stronger'' than the Principle of Weak Induction. The reason behind this is because of the nature of the theorem's ``induction hypothesis'', which assumes the truth of $P(i)$ for all $i$ up to a value $n$. We may apply this principle to prove certain statements where in order to complete the inductive step assumptions about more than just the previous steps are needed. Here is a particular example of this. 
 
 \section{Exercises}
 \begin{enumerate}

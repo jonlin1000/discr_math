@@ -22,4 +22,27 @@ The other type of claim usually investigated has a ``hypothesis implies conclusi
 Suppose $A$, $B$, and $C$ are sets with $A \subset B$ and $B \subset C$. Then $A \subset C$.
 \end{proposition}
 
-Here, the objects are $A$, $B$, and $C$ with some properties involving subset relations. The conclusion is another property involving subset relations. 
+Here, the objects are $A$, $B$, and $C$ with some properties involving subset relations. The conclusion is another property involving subset relations.
+
+\subsection{Situations are Equivalent}
+
+Similarly to the ``hypothesis implies conclusion'' proof structure, the ``situations are equivalent'' structure involves a set of two or more hypotheses. The claim is that each of these hypotheses implies the other. Usually these claims will have the following form:
+
+\begin{proposition}
+The following are equivalent:
+\begin{itemize}
+	\item Situation A
+	\item Situation B
+\end{itemize}
+\end{proposition}
+
+To prove this proposition is true is the same as showing both the claims ``Situation A implies Situation B'' and ``Situation B implies Situation A''. 
+
+For the situation with $3$ or more hypotheses, one might imagine that one needs to show a lot more than two claims, and the situation may get out of hand quickly. However, this is not the case, since it turns out implication is transitive. That is, if ``Situation A implies Situation B'' and ``Situation B implies Situation C'', then it follows that ``Situation A implies Situation C''. So if we are to show situations A, B, and C are equivalent, one possible way to show this is to show the following claims to be true:
+
+\begin{itemize}
+	\item Situation A implies Situation B
+	\item Situation B implies Situation C
+	\item Situation C implies Situation A.
+\end{itemize}
+

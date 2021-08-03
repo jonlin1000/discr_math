@@ -39,16 +39,16 @@ By yourself come up with some analogous formulas for products.
 \section{The Principle of Mathematical Induction}
 
 \begin{definition}
-    The proposition $P(n)$ is a logical statement involving some value $n$.
+    A proposition $P(n)$ is a logical statement involving some value $n$.
 \end{definition}
 
-It is very helpful to consider an example or two. Define $P(n)$ to be the logical statement that $n = 1$. In other words, $P(n) \equiv (n = 1)$. Then $P(n) \equiv T$ if and only if $n = 1$, which is true but is silly to say. Another example: define $P(n) \equiv (2 \mid n)$. Then
+It is very helpful to consider an example or two. For example, define $P(n)$ to be the logical statement that $n = 1$. In other words, $P(n) \equiv (n = 1)$. Then $P(n) \equiv T$ if and only if $n = 1$, which is true but is silly to say. Another example: define $P(n) \equiv (2 \mid n)$. Then
 \[P(n) \equiv \begin{cases}T, & 2 \mid n \\ F, & 2 \nmid n\end{cases}\]
 
 But as of now we aren't really interested in examples like this. We'd like to know if there is a way to show that $P(n) \equiv T$ for $n \geq k$ for some integer $k$, for example.
 
 For example, we'd like to figure out whether or not
-\[\sum_{i = 1}^n(2i - 1) = n^2\] for all $n$. It seems true! But how might we prove it? This leads us to the principle of mathematical induction, which is the basis for the majority of proofs we'll do for the rest of the semester.
+\[\sum_{i = 1}^n(2i - 1) = n^2\] for all $n$. It seems true! But how might we prove it? This leads us to a technique called \textit{mathematical induction}, a powerful technique which lets us prove classes of statements indexed by the natural numbers. The technique of mathematical induction essentially relies on the following theorem. We will prove this theorem is true in a future section using a property of the natural numbers called the \textbf{Well-Ordering Principle}.
 
 \begin{theorem}
 Let $a$ be any natural number. And let $P(k)$ be a proposition about $k \in \mathbb{N}$. Assume the following claims are true:
@@ -59,27 +59,33 @@ Let $a$ be any natural number. And let $P(k)$ be a proposition about $k \in \mat
 
 Then $P(k)$ is true for all $k \geq a$.
 \end{theorem}
-\begin{proof}
-Omitted. To convince yourself it is true you might draw a number line.
-\end{proof}
 
-To actually prove a proposition $P(x)$ is true for all $x \geq a$ using induction, it is a two step process:
+Essentially, suppose you have an indexed family of propositions $P(n)$ which you want to prove true for $n \geq a$. A proof by mathematical induction is essentially the same as satisfying the hypotheses of the above theorem. Essentially, in a proof by induction you show the following:
 
 \begin{enumerate}
-    \item First show that $P(a) \equiv T$.
+    \item First we show that $P(a) \equiv T$.
     \item Next, assuming that $P(k)$ is true for $k \geq a$, prove that $P(k + 1)$ is true.
 \end{enumerate}
 
-Once you show the above two steps by the principle of mathematical induction you have shown the claim for all natural numbers $x \geq a$.
+Here is an example of this in action. We will prove the first equality stated at the beginning of the chapter.
+\begin{proposition}
+\[\sum_{i = 1}^n(2i - 1) = n^2\] for all $n$ for all natural numbers $n \geq 1$.
+\end{proposition}
+\begin{proof}
+We will prove this equality using mathematical induction. First, we observe for $n = 1$ that
+\[\sum_{i = 1}^1(2i - 1) = 1 = 1^2.\]
+Now assume that 
+\[\sum_{i = 1}^k(2i - 1) = k^2.\]
+Then
+\[\sum_{i = 1}^{k + 1}(2i - 1) = \sum_{i = 1}^k(2i - 1) + 2(k + 1) - 1 = k^2 + 2k + 1 = (k + 1)^2,\]
+so we are done.
+\end{proof}
 
-In 250, here is how we format this proof, which is a 3 step process. For convenience, I will take $a = 0$. How to prove $P(n)$ for all $n \geq 0$:
-\begin{enumerate}
-    \item Inductive Base: Show that $P(0) \equiv T$.
-    \item Inductive hypothesis: State the following: For all $n = k \geq 0$ assume that $P(k)$ is true.
-    \item Inductive Step: Assuming that $P(k)$ is true, prove that $P(k + 1)$ is true.
-\end{enumerate}
-
-We will do several examples of how to do this in lecture and discussion, and you have chance to practice with the below exercises (which are rather hard apart for most of problem 1).
+Let's break down this proof a little bit further. Here the statement $P(n)$ is the statement that the equality 
+\[\sum_{i = 1}^n(2i - 1) = n^2\] is true for that specific $n$. In the first part of the proof we show that $P(1)$ is true. In the second part of the proof we show that the truth of $P(k)$ implies the proof of $P(k + 1)$. To do this, we split the sum
+\[\sum_{i = 1}^{k + 1}(2i - 1) = \sum_{i = 1}^k(2i - 1) + 2(k + 1) - 1\]
+into two parts. By our hypothesis, the left part is exactly $k^2$. The rest of the prooof simplifies the sum to achieve the desired conclusion: that is to show 
+\[\sum_{i = 1}^{k + 1}(2i - 1) = (k + 1)^2.\]
 
 \section{Exercises}
 \begin{enumerate}
