@@ -1,0 +1,15 @@
+In this section, we will be interested in answering the following question: given a set $S$, how many elements are in it?In particular, we will be interested in infinite sets. For example, compare the set of natural numbers $\mathbb{N}$ and the set of rational numbers $\mathbb{Q}$. Can we compare the sizes of these sets in some meaningful way?
+
+The problem is still a little vague. To make the problem more clear, we ought to consider a few examples of what we would like to say.
+
+\begin{example}
+Suppose we have a set $\{a, b, c\}$, where $a$, $b$, and $c$ are different objects. Then the size of $S$ is $3$. In general, if we have a set $S$ of objects ``that we can count'' then we ought to be able to determine the size of $S$. In particular, the size of the empty set $\varnothing$ ought to be $0$. 
+\end{example}
+
+But what is a good way to officially define the size of a finite set in this way? There are a lot of different objects that one might like to consider, and the definition of size should be more or less independent on what kinds of objects are in our set. The approach that eventually works is the following method. Essentially, we give for each size $n$ a specific set which has size $n$. Then, two sets have equal size if there is a bijective map between them. That is, every object in the first set is associated with a unique object in the second.\footnote{This method is essentially the same as the following anecdote. A long time ago, a Hungarian aristocrat decided to determine whether or not his chest of jewels had more diamonds or more gold coins. The only problem is that they were unable to count to more than 3. How to compare the two amounts? Eventually, the aristocrat decides on the following method. For each gold coin, the aristocrat sets aside a diamond, and keeps going until he runs out of either diamonds or gold coins. If he runs out of diamonds and gold coins at the same time, he may conclude that he has the same number of diamonds and gold coins, even though he does not know the number of either.} The set we will use to determine the size (or \textbf{cardinality}) $n$ will be the set
+\[[n] = \{1, 2, \dots, n-1, n\}.\]
+
+A set $S$ is said to have size $n$ or cardinality $n$ if there exists a bijective function $h: S \to [n]$. If a bijection exists, we write $|S| = n$, read ``the size of $S$ is $n$''. The notion of cardinality by means of a bijective function also solves the problem of labeling. A set $\{1, 2, 3, 3\}$ has cardinality $3$, even though it is described with $4$ elements, because when it is time to describe a function the only set $[n]$ which will give us a bijection is $[3]$.
+
+Before we continue, we must address some issues which are not addressed in the discussion above. For instance, we are not sure that cardinality is a well defined operation. That is, it might be possible that there are two bijections $f: S \to [m]$ and $g: S \to [n]$, where $m$ and $n$ are different. However, it turns out this cannot be the case. This is probably explored in Chapter 9, along with other issues as well.
+
